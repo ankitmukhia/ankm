@@ -5,6 +5,7 @@ import { projects } from '@/lib/constants'
 import { SiteHeader } from '@/components/site-header'
 import { ProfileImageLarge } from '@/components/profile-image'
 import { ProjectPreview } from '@/components/project-preview'
+import { GithubActivityGraph } from '@/components/github-activity-graph'
 import { Nav } from '@/components/nav'
 
 export const metadata: Metadata = {
@@ -31,10 +32,13 @@ export default async function Page() {
           <div className="text-xl text-rose-100/90">
             {meta.description}
           </div>
-
           <Nav />
         </div>
       </CycleNav>
+
+      <div className="mt-8 space-y-4">
+        <GithubActivityGraph />
+      </div>
 
       <div className="mt-8 space-y-4">
         {projects.map((project) => {
