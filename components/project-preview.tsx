@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react';
-import { Title, Text, Meta, Icon } from '@/components/UIComponents';
-import { SiGithub, SiX, SiGmail } from '@icons-pack/react-simple-icons';
+import { Title, Text, Meta } from '@/components/UIComponents';
+import { SiGithub } from '@icons-pack/react-simple-icons';
 import { RoughNotation, RoughNotationGroup } from 'react-rough-notation';
 import type { Project } from '@/lib/constants';
 

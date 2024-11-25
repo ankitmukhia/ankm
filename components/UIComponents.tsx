@@ -1,5 +1,6 @@
-import React, { ElementType } from 'react'
+import React from 'react'
 import clsx from 'clsx'
+import { IconType } from '@icons-pack/react-simple-icons'
 
 function Title({ children }: { children: React.ReactNode }) {
 	return (
@@ -9,7 +10,7 @@ function Title({ children }: { children: React.ReactNode }) {
 	)
 }
 
-function Icon(props: { icon: any }) {
+function Icon(props: { icon: IconType }) {
 	return (
 		<div className="mt-1 ml-2 shrink-0">
 			<props.icon className="w-5 text-rose-100/30 transition-colors hover:text-rose-100/50" />
