@@ -36,11 +36,11 @@ export default async function Page() {
         </div>
       </CycleNav>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-2 space-y-2">
         <GithubActivityGraph />
       </div>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-2 space-y-4">
         {projects.map((project) => {
           return (
             <ProjectPreview

@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { Title, Text, Meta } from '@/components/UIComponents';
-import { SiGithub } from '@icons-pack/react-simple-icons';
 import { RoughNotation, RoughNotationGroup } from 'react-rough-notation';
 import type { Project } from '@/lib/constants';
+import Link from 'next/link'
 
 type Technology = "Node.js" | "React" | "Express" | "MongoDB" | "JavaScript" | "HTML" | "CSS";
 
@@ -42,7 +42,7 @@ export const ProjectPreview = (project: Project) => {
 						<div className="inline-block">
 							<RoughNotation
 								type="highlight"
-								color="#581c87"
+								color="#581c7"
 								strokeWidth={60}
 							>
 								<Meta>{project.date}</Meta>
@@ -71,7 +71,9 @@ export const ProjectPreview = (project: Project) => {
 								color="orange"
 								padding={6}
 							>
-								<SiGithub size={20} />
+							<Link target="__blank" href={project.githubLink}>
+							  {project.githubIcon}
+							</Link>
 							</RoughNotation>
 
 							<RoughNotation
@@ -79,7 +81,9 @@ export const ProjectPreview = (project: Project) => {
 								color="orange"
 								padding={6}
 							>
-								<SiGithub size={20} />
+							<Link target="__black" href={project.liveLink}>
+							  {project.liveLinkIcon}
+							</Link>
 							</RoughNotation>
 						</div>
 					</div>

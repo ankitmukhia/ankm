@@ -1,5 +1,6 @@
 import localFont from "next/font/local"
 import { Footer } from '@/components/footer'
+import { Analytics } from '@vercel/analytics/next'
 import clsx from 'clsx'
 import "./globals.css";
 
@@ -47,6 +48,8 @@ export default function RootLayout({
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="h-screen w-screen relative overflow-hidden bg-top bg-no-repeat opacity-[0.3]" />
         </div>
+
+	<Analytics />
       </body>
     </html>
   );
