@@ -6,7 +6,7 @@ const NavItems = ({ href, children, icon }: {
 	icon?: React.ReactNode
 	children?: React.ReactNode
 }) => {
-	return <Link href={href}>
+	return <Link target="__blank" href={href}>
 		<div className="sm:flex sm:items-center sm:space-x-2">
 			<div>
 				{icon}
@@ -24,12 +24,12 @@ export const Nav = () => {
 
 	return <div className="flex items-center space-x-3 text-base font-medium leading-none text-rose-100/90 lg:space-x-6">
 		<NavItems
-			href="#"
+			href="https://github.com/ankitmukhia"
 			icon={<SiGithub size={20} className="hover:text-teal-700/60" />}
 		/>
 
 		<NavItems
-			href="#"
+			href="https://x.com/ankitmukhiax"
 			icon={<SiX size={18} className="hover:text-teal-700/60" />}
 		/>
 
@@ -37,11 +37,5 @@ export const Nav = () => {
 			href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
 			icon={<SiGmail size={20} className="hover:text-teal-700/60" />}
 		/>
-
-		<NavItems
-			href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
-		>
-			Project
-		</NavItems>
 	</div>
 }
