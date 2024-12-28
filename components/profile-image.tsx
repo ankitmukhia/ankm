@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Ankit = () => (
 	<Image
@@ -8,14 +9,17 @@ const Ankit = () => (
 		height={50}
 		priority={true}
 		className="rounded-full"
-		alt="A photo of Delba"
+		alt="ankit"
 	/>
 )
 
 export const ProfileImageLarge = () => {
 	return (
-		<div className="rounded-full bg-gradient-to-tl from-teal-700/60 to-gray-400/60 p-1 shadow-lg ring-[5px] ring-purple-500/10">
+		<Link 
+			href={"/p"}
+			className="rounded-full bg-gradient-to-tl from-teal-700/60 to-gray-400/60 p-1 shadow-lg ring-[5px] ring-purple-500/10"
+		>
 			<Ankit />
-		</div>
+		</Link>
 	)
 }
