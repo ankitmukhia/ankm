@@ -16,7 +16,7 @@ const Ankit = () => (
 export const ProfileImageLarge = () => {
 	return (
 		<Link 
-			href={"/p"}
+			href={"/profile"}
 			className="rounded-full bg-gradient-to-tl from-teal-700/60 to-gray-400/60 p-1 shadow-lg ring-[5px] ring-purple-500/10"
 		>
 			<Ankit />
