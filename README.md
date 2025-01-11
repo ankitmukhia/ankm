@@ -1,1 +1,1 @@
-ankit.live is my ongoing personal website.
+ankits.live is my ongoing personal website.
