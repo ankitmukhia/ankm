@@ -6,7 +6,7 @@ const PostCard = (post: Post) => {
 		<div className="mb-8">
 			<h2 className="mb-1 text-xl">
 				<Link
-					href={''}
+					href={`/p/post/${post.url}`}
 					className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
 				>
 					{post.title}

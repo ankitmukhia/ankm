@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -30,5 +31,5 @@
 	  ".next/types/**/*.ts",
 	  ".contentlayer/generated"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

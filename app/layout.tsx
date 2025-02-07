@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import "./globals.css";
 
 const hubot = localFont({
-  src: "./fonts/HubotSans.woff2",
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-hubot",
   weight: "400 900",
 });
