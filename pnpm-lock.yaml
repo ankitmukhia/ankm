@@ -28,7 +28,7 @@ importers:
         version: 12.4.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       motion:
         specifier: ^12.4.0
-        version: 12.4.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
+        version: 12.4.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       next:
         specifier: 15.0.1
         version: 15.0.1(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
@@ -53,6 +53,9 @@ importers:
       react-use:
         specifier: ^17.5.1
         version: 17.6.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
+      react-wrap-balancer:
+        specifier: ^1.1.1
+        version: 1.1.1(react@19.0.0-rc-69d4b800-20241021)
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.0.1
@@ -791,14 +794,14 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1'
 
-  '@tanstack/react-virtual@3.12.1':
-    resolution: {integrity: sha512-dWbKcOnsJfuifCtZy+Q7Lq9l6zIDiEQmzi1j/obvnPaqaP73F1tlP8RFjHlB9Cb8fI3encSB3IzHEX9wjAR6qA==}
+  '@tanstack/react-virtual@3.13.0':
+    resolution: {integrity: sha512-CchF0NlLIowiM2GxtsoKBkXA4uqSnY2KvnXo+kyUFD4a4ll6+J0qzoRsUPMwXV/H26lRsxgJIr/YmjYum2oEjg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/virtual-core@3.12.1':
-    resolution: {integrity: sha512-4siCMpfO0XVgXeObihia2E+Y8onkqp4rRTQFnsZcHb0AbUAGoyUEosrj5k5VNR0n8Mor4OjntWeoen/nwB809g==}
+  '@tanstack/virtual-core@3.13.0':
+    resolution: {integrity: sha512-NBKJP3OIdmZY3COJdWkSonr50FMVIi+aj5ZJ7hI/DTpEKg2RMfo/KvP8A3B/zOSpMgIe52B5E2yn7rryULzA6g==}
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -2166,8 +2169,8 @@ packages:
   motion-utils@12.0.0:
     resolution: {integrity: sha512-MNFiBKbbqnmvOjkPyOKgHUp3Q6oiokLkI1bEwm5QA28cxMZrv0CbbBGDNmhF6DIXsi1pCQBSs0dX8xjeER1tmA==}
 
-  motion@12.4.0:
-    resolution: {integrity: sha512-5AlCJ5wrGIbxvPwR3R17/POKQH7JNHbLTwvbbj3adz63AZwuZx80i5b4eax4ED1l6fkYTQZo9sP2zAq3rdkUKQ==}
+  motion@12.4.1:
+    resolution: {integrity: sha512-TBnf5NyZVZFOHOc87fyC6qTSU+6LUe09LwxA1Sna35YL7qgOv1EZv96mu6o7uQ2Rl1GvTSQLeyfrQAEG+zlh+w==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -2475,6 +2478,11 @@ packages:
     peerDependencies:
       react: '*'
       react-dom: '*'
+
+  react-wrap-balancer@1.1.1:
+    resolution: {integrity: sha512-AB+l7FPRWl6uZ28VcJ8skkwLn2+UC62bjiw8tQUrZPlEWDVnR9MG0lghyn7EyxuJSsFEpht4G+yh2WikEqQ/5Q==}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.0.0 || ^18'
 
   react@19.0.0-rc-69d4b800-20241021:
     resolution: {integrity: sha512-dXki4tN+rP+4xhsm65q/QI/19VCZdu5vPcy4h6zaJt20XP8/1r/LCwrLFYuj8hElbNz5AmxW6JtRa7ej0BzZdg==}
@@ -3289,7 +3297,7 @@ snapshots:
       '@floating-ui/react': 0.26.28(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       '@react-aria/focus': 3.19.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       '@react-aria/interactions': 3.23.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
-      '@tanstack/react-virtual': 3.12.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
+      '@tanstack/react-virtual': 3.13.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       react: 19.0.0-rc-69d4b800-20241021
       react-dom: 19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021)
 
@@ -3699,13 +3707,13 @@ snapshots:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.4.17
 
-  '@tanstack/react-virtual@3.12.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)':
+  '@tanstack/react-virtual@3.13.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)':
     dependencies:
-      '@tanstack/virtual-core': 3.12.1
+      '@tanstack/virtual-core': 3.13.0
       react: 19.0.0-rc-69d4b800-20241021
       react-dom: 19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021)
 
-  '@tanstack/virtual-core@3.12.1': {}
+  '@tanstack/virtual-core@3.13.0': {}
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -5524,7 +5532,7 @@ snapshots:
 
   motion-utils@12.0.0: {}
 
-  motion@12.4.0(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021):
+  motion@12.4.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021):
     dependencies:
       framer-motion: 12.4.1(react-dom@19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021))(react@19.0.0-rc-69d4b800-20241021)
       tslib: 2.8.1
@@ -5866,6 +5874,10 @@ snapshots:
       throttle-debounce: 3.0.1
       ts-easing: 0.2.0
       tslib: 2.8.1
+
+  react-wrap-balancer@1.1.1(react@19.0.0-rc-69d4b800-20241021):
+    dependencies:
+      react: 19.0.0-rc-69d4b800-20241021
 
   react@19.0.0-rc-69d4b800-20241021: {}
 

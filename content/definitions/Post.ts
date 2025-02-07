@@ -22,6 +22,10 @@ export const Post = defineDocumentType(() => ({
 		status: {
 			type: 'string',
 			required: true
+		},
+		image: {
+			type: 'string',
+			required: true
 		}
 	},
 	computedFields: {
