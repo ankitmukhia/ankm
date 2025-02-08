@@ -13,18 +13,22 @@ export const Post = defineDocumentType(() => ({
 		},
 		description: {
 			type: 'string',
+			description: 'The description of post',
 			required: true
 		},
 		publishedAt: {
 			type: 'string',
+			description: 'The date of post',
 			required: true
 		},
 		status: {
 			type: 'string',
-			required: true
+			description: 'The status of post',
+			required: true 
 		},
-		image: {
+		coverImage: {
 			type: 'string',
+			description: 'The image of post',
 			required: true
 		}
 	},

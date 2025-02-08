@@ -1,8 +1,11 @@
 import { clsx } from 'clsx'
 import { Post } from 'contentlayer/generated'
 import Balancer from 'react-wrap-balancer'
+import { components } from '@/lib/mdx'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 export default function Page({ post }: { post: Post }) {
+	const MDXComponent = useMDXComponent(post.body.code)
 
 	return (
 		<div className="mt-24 mb-4">
@@ -19,6 +22,9 @@ export default function Page({ post }: { post: Post }) {
 					{new Date(post.publishedAt).toDateString()}
 				</div>
 				{/* <div className="text-rose-200/30">&middot;</div> */}
+			</div>
+			<div>
+				<MDXComponent components={components} />
 			</div>
 		</div>
 	)

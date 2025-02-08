@@ -26,7 +26,7 @@ const PostCard = (post: Post) => {
 					<div className="w-32 sm:w-40 h-auto">
 						<Image
 							alt={post.title}
-							src={post.image}
+							src={post.coverImage}
 							fill
 							className="object-contain rounded-sm"
 						/>
@@ -49,3 +49,9 @@ export default function Page() {
 	)
 }
 
+/* <Img
+   caption="crowling steps"
+   src={"/images/what-i-read-this-week-01.png"}
+   width={1600}
+   height={836}
+ /> */
