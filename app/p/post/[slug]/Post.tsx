@@ -23,7 +23,7 @@ export default function Page({ post }: { post: Post }) {
 				</div>
 				{/* <div className="text-rose-200/30">&middot;</div> */}
 			</div>
-			<div>
+			<div className="mt-6">
 				<MDXComponent components={components} />
 			</div>
 		</div>

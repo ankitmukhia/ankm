@@ -3,7 +3,7 @@ import { defineDocumentType } from 'contentlayer/source-files'
 
 export const Post = defineDocumentType(() => ({
 	name: 'Post',
-	filePathPattern: '**/*.mdx',
+	filePathPattern: `**/*.mdx`,
 	contentType: 'mdx',
 	fields: {
 		title: {
@@ -18,7 +18,7 @@ export const Post = defineDocumentType(() => ({
 		},
 		publishedAt: {
 			type: 'string',
-			description: 'The date of post',
+			description: 'Posted date of post',
 			required: true
 		},
 		status: {

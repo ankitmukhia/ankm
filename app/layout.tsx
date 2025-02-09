@@ -41,7 +41,8 @@ export default function RootLayout({
           <rect width="100%" height="100%" filter="url(#noise)" />
         </svg>
 
-	<div className="flex bg-yellow-300/80 text-slate-950 leading-8 tracking-wider uppercase flex-row justify-center"> My portfolio is currently a work in progress
+	<div className="flex bg-yellow-300/80 text-slate-950 leading-8 tracking-wider uppercase flex-row justify-center">
+	   My portfolio is currently a work in progress
 	</div>
         <div className="layout-sm relative z-10 grid gap-y-8 px-4 text-rose-200/90 xl:layout-xl xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3">
           {children}
