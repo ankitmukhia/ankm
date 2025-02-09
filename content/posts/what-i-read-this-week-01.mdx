@@ -8,19 +8,32 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
 
 # General deep dive into the LLM Model, AI technology that powers ChatGPT and related products.
 
-## Finding raw data.
+## Finding raw data
+
     - I my self used to wonder, how and where do they get all the data? There are generally two options:
-      a. Crawl it yourself, like companies like ChatGPT does.
-      b. You use a public repo of crawled webpages, like non-profit CommonCrawl.
-      c. They are all this crawlers going around the internet. You start webpages and you follow all the links, and keep follwing the links and you keep indexing all the info. And endup having tons of data over time.
-    - And this crowling goes through bunch of steps.
-      a. filtering, webpages that you don't want data from like malware sites, markeating sites, adults sites, etc.
-      b. filterin and processing only text, beside all the market language that is there.
-      c. only crawling the thrugh those pages, which has english language or language that you wantor like sites that has english more then 65%.
-      d. this is fourth
-## Tokenization.
+
+           Crawl it yourself, like companies like ChatGPT does
+
+           You use a public repo of crawled webpages, like non-profit CommonCrawl.
+
+           Crawlers traverse the internet by following links, indexing information, and accumulatingvast amounts of data over time.
+
+    - And this crawling goes through bunch of steps
+
+           Filtering, webpages that you don't want data from like malware sites, markeating sites, adults sites, etc.
+
+	   Filtering and processing only text, beside all the market language that is there.
+
+           Only crawling through those pages, which has english language or language that you prefer, or sites that has english/preferable language more then 65%.
+
+	   There is more need to look into.
+
+## Tokenization
+
     - Raw data > bites > bytes > group frequent byte pairs into symbols = final's token.
+
     - cl100k_base is GPT-4 tokenizer.
+
 ## Nural Networks traning.
 
 ## Nural Networks Internals.

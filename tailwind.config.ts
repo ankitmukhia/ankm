@@ -5,11 +5,10 @@ import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
-    "./content/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/posts/**/*.mdx",
   ],
   theme: {
     extend: {
