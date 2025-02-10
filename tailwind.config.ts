@@ -49,11 +49,7 @@ const config: Config = {
           "grid-template-columns": `1fr min(${theme("screens.sm")},100%) 1fr`,
         },
         ".layout-xl": {
-          "grid-template-columns": `1fr minmax(auto,${theme(
-            "spacing.60",
-          )}) min(${theme("screens.sm")},100%) minmax(auto,${theme(
-            "spacing.60",
-          )}) 1fr`,
+          "grid-template-columns": `1fr minmax(auto,${theme("spacing.60")}) min(${theme("screens.sm")},100%) minmax(auto,${theme("spacing.60")}) 1fr`,
         },
       })
     }),

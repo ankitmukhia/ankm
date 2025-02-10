@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-	.scrollbar::-webkit-scrollbar {
+	/* .scrollbar::-webkit-scrollbar {
 		width: 20px;
 		height: 20px;
 	}
@@ -21,5 +21,5 @@
 
 	.scrollbar::-webkit-scrollbar-thumb:hover {
 		background: #c0a0b9;
-	}
+	} */
 }

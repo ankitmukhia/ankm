@@ -1,8 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import { Post, allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import Image from 'next/image'
+import clsx from 'clsx'
 
 const PostCard = (post: Post) => {
+	const [isLoading, setIsLoading] = useState(true)	
+
 	return (
 		<div className="mb-8">
 			<div className="flex justify-between">
@@ -12,7 +18,7 @@ const PostCard = (post: Post) => {
 							href={`/p/post/${post.url}`}
 							className="text-2xl"
 						>
-							{post.title}
+						  {post.title}
 						</Link>
 					</h2>
 					<h3 className="text-sm mt-2 text-rose-100/60">
@@ -28,7 +34,8 @@ const PostCard = (post: Post) => {
 							alt={post.title}
 							src={post.coverImage}
 							fill
-							className="object-contain rounded-sm"
+							className={clsx("object-contain  rounded-sm", isLoading ? "scale-50 blur-xl" : "scale-100 blur-0")}
+							onLoadingComplete={() => setIsLoading(false)}
 						/>
 					</div>
 				</div>
@@ -48,10 +55,3 @@ export default function Page() {
 		</div>
 	)
 }
-
-/* <Img
-   caption="crowling steps"
-   src={"/images/what-i-read-this-week-01.png"}
-   width={1600}
-   height={836}
- /> */
