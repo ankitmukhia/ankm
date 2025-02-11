@@ -10,35 +10,51 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
 
 ## Finding raw data
 
-    - I my self used to wonder, how and where do they get all the data? There are generally two options:
+- I my self used to wonder, how and where do they get all the data? There are generally two options:
 
-           Crawl it yourself, like companies like ChatGPT does
+<ol type="a">
+  <li>
+     Crawl it yourself, like companies like ChatGPT does
+  </li>
 
-           You use a public repo of crawled webpages, like non-profit CommonCrawl.
+  <li>
+   You use a public repo of crawled webpages, like non-profit CommonCrawl.
+ </li>
 
-           Crawlers traverse the internet by following links, indexing information, and accumulatingvast amounts of data over time.
+ <li>
+   Crawlers traverse the internet by following links, indexing information, and accumulatingvast amounts of data over time.
+ </li>
+</ol>
 
-    - And this crawling goes through bunch of steps
-	  <Img
-    	    src={`https://huggingfacefw-blogpost-fineweb-v1.static.hf.space/dist/assets/images/fineweb-recipe.png`}
-	    alt="crawling-steps-img"
-            width={1600}
-            height={836}
-           />
+- And this crawling goes through bunch of steps.
 
-           Filtering, webpages that you don't want data from like malware sites, markeating sites, adults sites, etc.
+<Img
+   src={`https://huggingfacefw-blogpost-fineweb-v1.static.hf.space/dist/assets/images/fineweb-recipe.png`}
+   alt="crawling-steps-img"
+   width={1600}
+   height={836}
+/>
 
-	   Filtering and processing only text, beside all the market language that is there.
-
-           Only crawling through those pages, which has english language or language that you prefer, or sites that has english/preferable language more then 65%.
-
-	   There is more need to look into.
+<ol type="a">
+   <li>
+     Filtering, webpages that you don't want data from like malware sites, markeating sites, adults sites, etc.
+   </li>
+   <li>
+     Filtering and processing only text, beside all the market language that is there.
+   </li>
+   <li>
+     Only crawling through those pages, which has english language or language that you prefer, or sites that has english/preferable language more then 65%.
+   </li>
+   <li>
+    There is more need to look into.
+  </li>
+</ol>
 
 ## Tokenization
 
-    - Raw data > bites > bytes > group frequent byte pairs into symbols = final's token.
+- Raw data > bites > bytes > group frequent byte pairs into symbols = final's token.
 
-    - cl100k_base is GPT-4 tokenizer.
+- cl100k_base is GPT-4 tokenizer.
 
 ## Nural Networks traning.
 
