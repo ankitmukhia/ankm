@@ -44,4 +44,10 @@ export const components = {
       {...props} 
     />
   ),
+  ol: (props: React.ComponentProps<"ol">) => (
+    <ol
+      className="space-y-3 [li>&]:mt-3 [&>li]:relative [&>li]:pl-7"
+      {...props}
+    />
+  )
 }
