@@ -6,11 +6,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
 
-const PostCard = (post: Post) => {
-	const [isLoading, setIsLoading] = useState(true)	
+const PostCard = ({ post, index }: { post: Post, index: number }) => {
+	const [isLoading, setIsLoading] = useState(true)
 
+	// when hover the latest post, shows pop up animation msg `latest`
 	return (
-		<div className="mb-8">
+		<div className={clsx("mb-8", index === 0 && "pb-8 border-b-2 border-rose-200/5")}>
 			<div className="flex justify-between">
 				<div>
 					<h2 className="mb-1 text-xl">
@@ -50,7 +51,7 @@ export default function Page() {
 	return (
 		<div className="mx-auto max-w-xl py-8">
 			{formatedPost.map((post, _idx) => (
-				<PostCard key={_idx} {...post} />
+			    <PostCard key={_idx} post={post} index={_idx} />
 			))}
 		</div>
 	)
