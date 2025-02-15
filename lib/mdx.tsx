@@ -45,9 +45,6 @@ export const components = {
     />
   ),
   ol: (props: React.ComponentProps<"ol">) => (
-    <ol
-      className="space-y-3 [li>&]:mt-3 [&>li]:relative [&>li]:pl-7"
-      {...props}
-    />
+    <ol className="list-decimal space-y-3 pl-10" {...props} />
   )
 }

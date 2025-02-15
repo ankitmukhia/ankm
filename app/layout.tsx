@@ -2,7 +2,7 @@ import localFont from "next/font/local"
 import { Footer } from '@/components/footer'
 import { Analytics } from '@vercel/analytics/next'
 import clsx from 'clsx'
-import "./globals.css";
+import "./globals.css"
 
 const hubot = localFont({
   src: "./fonts/GeistMonoVF.woff",
