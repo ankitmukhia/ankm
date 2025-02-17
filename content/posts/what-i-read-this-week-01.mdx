@@ -6,27 +6,16 @@ status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
-# General deep dive into the LLM Model, AI technology that powers ChatGPT and related products.
+# Deep Dive into LLM Models and AI Technology  
 
-## Finding raw data
+## 1. **Finding Raw Data**
 
-- I my self used to wonder, how and where do they get all the data? There are generally two options:
+A common question is: *Where do LLMs get their data from?* There are generally two main approaches:
 
-<ol type="a">
-  <li>
-     Crawl it yourself, like companies like ChatGPT does
-  </li>
+1. **Crawling the web yourself** – This is done by companies like OpenAI, which systematically gather data from the internet.  
+2. **Using public repositories** – For example, non-profit organizations like [Common Crawl](https://commoncrawl.org/) provide large-scale web data for research and development. 
 
-  <li>
-   You use a public repo of crawled webpages, like non-profit CommonCrawl.
- </li>
-
- <li>
-   Crawlers traverse the internet by following links, indexing information, and accumulatingvast amounts of data over time.
- </li>
-</ol>
-
-- And this crawling goes through bunch of steps.
+### **How Crawling Works**  
 
 <Img
    src={`https://huggingfacefw-blogpost-fineweb-v1.static.hf.space/dist/assets/images/fineweb-recipe.png`}
@@ -35,27 +24,35 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
    height={836}
 />
 
-<ol type="a">
-   <li>
-     Filtering, webpages that you don't want data from like malware sites, markeating sites, adults sites, etc.
-   </li>
-   <li>
-     Filtering and processing only text, beside all the market language that is there.
-   </li>
-   <li>
-     Only crawling through those pages, which has english language or language that you prefer, or sites that has english/preferable language more then 65%.
-   </li>
-   <li>
-    There is more need to look into.
-  </li>
-</ol>
+- **Url Filtering** – Excluding data from malware sites, marketing-heavy pages, adult sites, etc.
+- **Text Extraction** – Ignoring computer code, like: HTML elements, css, only extracting text.  
+- **Language Filtering** - Prioritizing content in English (or other target languages), ensuring at least **65% of content** is in the preferred language.
+There are additional refinements beyond these initial steps.
+- **Final data preview** –  [Dataset Preview](https://huggingface.co/datasets/HuggingFaceFW/fineweb)
 
-## Tokenization
+## 2. **Tokenization**  
+Before training an LLM, raw data needs to be converted into a structured format:
 
-- Raw data > bites > bytes > group frequent byte pairs into symbols = final's token.
+1. **Raw data** → **Bits** → **Bytes**  
+2. **Grouping frequent byte pairs** into symbols → **Tokens**
+3. **Done via** → **Byte pair algorithm**
+4. **Final tokens** used by the model
+5. **Token represntation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
+6. **Ex: ** → **ChatGPT uses cl100k_base tokenizer** 
 
-- cl100k_base is GPT-4 tokenizer.
+## 3. **Neural Network Training**
 
-## Nural Networks traning.
+### **Process of training / Input vs. Output**
+- **Input** - Sequence of tokens from 0 to n → **If we do infinite number of tokens, it is computationally expensive**
+- **Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself.
 
-## Nural Networks Internals.
+### **Neural Network internals**
+<Img
+   src={`/nn-internal.png`}
+   alt="crawling-steps-img"
+   width={1600}
+   height={836}
+/>
+- **Input** - Sequence of tokens from 0 to n.
+- **Parameters/Weights** - Adjustable numbers that help the model learn. Initial values are random. So Initial predection is random. But through process of iteratvely updating the parameters/weight gets adjusted such that output becomes consistent.
+- **Giant mathematical expression** - Input and Parameters/Weights fed into a mathematical expression. 
