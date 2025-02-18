@@ -1,10 +1,12 @@
 import React from "react"
 import { Button } from '@/components/animated-ui/button';
+import { Sticker } from '@/components/animated-ui/sticker';
 import { NextImage } from '@/components/next-image'
 import type { ImageProps } from 'next/image'
 
 export const components = {
   Button,
+  Sticker,
   h1: (props: React.ComponentProps<"h1">) => (
     <h2
       className="relative border-t-2 border-rose-200/5 pt-9 text-xl font-medium text-rose-200/95 sm:text-3xl"

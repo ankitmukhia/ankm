@@ -47,12 +47,52 @@ Before training an LLM, raw data needs to be converted into a structured format:
 - **Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself.
 
 ### **Neural Network internals**
+
+- **Input** - Sequence of tokens from 0 to n.
+- **Parameters/Weights** - Adjustable numbers that help the model learn. Initial values are random. So Initial predection is random. But through process of iteratvely updating the parameters/weight gets adjusted such that output becomes consistent.
+- **Giant mathematical expression** - Input and Parameters/Weights fed into a mathematical expression.
+
 <Img
    src={`/nn-internal.png`}
-   alt="crawling-steps-img"
+   alt="nn-internal-img"
    width={1600}
    height={836}
 />
-- **Input** - Sequence of tokens from 0 to n.
-- **Parameters/Weights** - Adjustable numbers that help the model learn. Initial values are random. So Initial predection is random. But through process of iteratvely updating the parameters/weight gets adjusted such that output becomes consistent.
-- **Giant mathematical expression** - Input and Parameters/Weights fed into a mathematical expression. 
+
+## 4. **Inference**
+This is one more major stage of training/working with this network.
+// Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, thos parameters are held fixed.
+
+## 5. **With all the learning, let's understand OpenAI's GPT-2**
+GPT-2 was published in 2019.
+
+### **Transformer neural network with**
+- **1.6B** parameters/weights
+- **1024-token** maximum sequence length. So when sampling chunks of window of token, it is not taking more than 1024 tokens.
+- **Trained on ~100 billion** tokens
+
+## 6. **Compute side of training this models**
+
+- **Training/optimization** is done on **GPU**. So it is a very fast process. It is done in **parallel**. If you want to train this model you can rent online from platforms like [Lambda](https://lambdalabs.com).
+
+<Img
+   src={`/nvidia-h100.png`}
+   alt="gpu-img"
+   width={1600}
+   height={836}
+/>
+
+## 7. **Base Models inference**
+
+- The model right after initial pretraining, it's called a base model. Interact with Base model here [Base Model](https://app.hyperbolic.xyz)
+- It is not yet a somthing, response is just a prediction, it is just a vague and probabilistic re-collection of internet documents.
+- Try this on [Base Model](https://app.hyperbolic.xyz), copy wikipedia first sentence and see the response. The pattern will likely repeat.
+- Model outputting memorized text from its training data instead of generating new, original responses also called **regurgitation**.
+
+### **Hallucination**
+- If model has not seen during training. It will try to guess the response with its current knowledge parameters. This is called **hallucination**.
+- **In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
+
+<Sticker>
+ Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** (it is the setting of the parameters of this trained network). And this base model is basically an internet document simulator.
+</Sticker>
