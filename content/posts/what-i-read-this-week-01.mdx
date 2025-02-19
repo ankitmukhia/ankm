@@ -1,6 +1,6 @@
 ---
 title: What I Read This Week.
-description: Weekly Reading Digest. 
+description: Deep dive into LLMs 
 publishedAt: 2025-01-07
 status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -37,7 +37,7 @@ Before training an LLM, raw data needs to be converted into a structured format:
 2. **Grouping frequent byte pairs** into symbols → **Tokens**
 3. **Done via** → **Byte pair algorithm**
 4. **Final tokens** used by the model
-5. **Token represntation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
+5. **Token representation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
 6. **Ex: ** → **ChatGPT uses cl100k_base tokenizer** 
 
 ## 3. **Neural Network Training**
@@ -89,10 +89,91 @@ GPT-2 was published in 2019.
 - Try this on [Base Model](https://app.hyperbolic.xyz), copy wikipedia first sentence and see the response. The pattern will likely repeat.
 - Model outputting memorized text from its training data instead of generating new, original responses also called **regurgitation**.
 
-### **Hallucination**
+### **Pre-training Hallucination**
 - If model has not seen during training. It will try to guess the response with its current knowledge parameters. This is called **hallucination**.
 - **In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
 
 <Sticker>
  Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** (it is the setting of the parameters of this trained network). And this base model is basically an internet document simulator.
 </Sticker>
+
+## 8. **Post training(conversation)**
+How should assistant interact with human like chatgpt/other.
+
+- **Assistant** is being programed by examples, and this is done by [Human labelers](https://www.opporture.org/lexicon/human-workforce-labelers/).
+- We train model on this conversational dataset.
+
+### **How it works?**
+- We take base model, and this base model was trained on internet documents we're now going to take dataset of internet document and throw it out, we gonna substitute a new data-set, which is dataset of conversation.
+- The pre-training dataset is not used directly in post-training; instead, the model trained on the pre-training dataset is further refined/finetuned using different datasets and techniques during the post-training phase.
+- Post-training requires significantly less time and computational power compared to pre-training. Coz dataset we are training with is much much smaller than internet dataset.
+
+<Sticker> 
+  Fundamentally we gonna take our base model and we gonna continue training using exact same algorithm exact same everthing as pre-training except we're swapping out dataset for conversation.
+</Sticker>
+
+### **Tokenization of conversation**
+How do we turn conversation into tokens sequences?
+
+- There are prcise rules and protocols for how you represent conversation.
+
+### **Conversation Protocols / Format**
+
+<Img
+   src={`/conv-protocol.png`}
+   alt="conversation-protocol-img"
+   width={1600}
+   height={836}
+/>
+- Our conversational dataset end up being turned into **one dimensional** sequence of tokens. 
+- Now given this token, we can apply stuff we applied like pre-training.
+- So now we are just predecting next token in the sequence, just like before.
+
+### **Now how is it look like during inference?**
+In below image where you see red cross, that is where the conversation cut off during inference. And model now predicting next token.
+
+<Img
+   src={`/inference-look.png`}
+   alt="conversation-inference-img"
+   width={1600}
+   height={836}
+/>
+
+### **Human data collection**
+- To construct this conversation org hires contractors from Upwork or ScaleAI to construct these conversations. So high level human are involved to create these conversations.
+- Example prompt, how it looks like see here: [Example](https://huggingface.co/datasets/OpenAssistant/oasst1/viewer/default/train?row=0)
+- But in recent days, human don't do all the heavy lifting. We now use language model and fine-tuning to create these conversations. **For ex: UltraChat, it take huge amount of synthetic help**
+
+<Sticker>
+ **So high level, so what are you talking to in chatgpt?**
+ It's not comming from magical ai, but it's coming from statistically imitating human labelers. Which comes from labeling instructions written by these companis like OpenAI/etc. So pre-training knowledge that has then combined with the post-training dataset that results your answer to query.
+</Sticker>
+
+## 9. **Post-training Hallucination**
+
+<Sticker>
+ Mitigation->(minimize risks) 
+</Sticker>
+
+### **Mitigation #1**
+Preventing hallucinations, how do we fix this?:
+
+- So they **interrogate->(asking questions frequently)** the model to figure out what it knows and doesn't know. They add examples to the training set for things the model doesn't know. **Such that the correct answer to answer this is "model doesn't know them"**.
+- We take that question and create a new conversation in training set so when question occurs, the answer is "sorry i don't know".
+- And if you have few example of this conversation in this training set, model will know it. Then this is called large mitigation for hallucinations.
+
+### **Mitigation #2**
+Allow model to search.
+
+- We introduc format or a protocol for how to model to allow to use **Special token -- SEARCH_START | Query | SEARCH_END --**.
+- Giving the llm the opportunity to be factual and actually answer the question. **This is same like, when asked question to you, and you don't know, you go off and search on internet**. We do same things with this models.
+- We do that by introducing tools for model. Insted of inferencing the next token in sequence, it will actually pause generating next token, it will go off and open bing.com and past your query "who is Orson" it will then get all the text and copy past in the [...] and when it comes to [...] it enters the context window->(think of it like, working memory of the model), which is then fed into Neural network. So it's not any more vague recollection, it's data that is in context window and directly available to model.
+
+<Img 
+   src={`/mitigation2-protocol.png`}
+   alt="mitigation2-protocol-img"
+   width={1600}
+   height={836}
+/>
+
+
