@@ -1,7 +1,7 @@
 ---
 title: What I Read This Week.
 description: Deep dive into LLMs 
-publishedAt: 2025-01-07
+publishedAt: 2025-02-20
 status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
@@ -94,7 +94,7 @@ GPT-2 was published in 2019.
 - **In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
 
 <Sticker>
- Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** (it is the setting of the parameters of this trained network). And this base model is basically an **internet document simulator ->(Mimics real things, For ex: Flight Simulator, A fake airplane cockpit for practic.)**
+ Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** **(it's a setting of the parameters of this trained network)**. And this base model is basically an **internet document simulator ->(Mimics real things, For ex: Flight Simulator, A fake airplane cockpit for practice.)**
 </Sticker>
 
 ## 8. **Post training(conversation)**
@@ -205,6 +205,56 @@ Distributing your computations across many tokens can potentially lead you to be
 ### **Models are not good with spelling**
 Models don't see characters like our eyes do. They see it as tokens.
 
-## 11. **Reinforcement Learning**  
+<Sticker>
+ This is the summary of **post-training**: After pre-training, the model is fine-tuned with **conversation-specific datasets** to improve interaction quality. Hallucinations are mitigated by training the model to say **"I don't know"** or allowing it to **search for information**. The model processes conversations as **token sequences**, and distributing computations across tokens enhances reasoning. And output of this entire post-training stage is often referred as **SFT(Supervised Fine-Tuning)**.
+</Sticker>
 
+## 11. **Reinforcement Learning**
+The last major stage of learning.
 
+#### **Below is the example of we learn from text books:**
+
+<Sticker>
+ Learning from school textbooks happens in three stages:  
+ 1. **Concept Explanation** – Background knowledge is provided. 
+ 2. **Worked Examples** – Solved problems show step-by-step solutions. Experts explaining the solution.
+ 3. **Practice Problems** – Questions are given with only final answers; you figure out the solution yourself.
+
+ Here you'r discovering how to solve these problems, and in the process of that you are relaying on **Background info(which comes from pre-training)** and **Example problems with solution from experts(which is SFT)**.
+</Sticker>
+
+- **So we gonna give **questions** with **final answers** such that model has to **practice** and try stuff out. And that is what reinforcement learning is about.
+
+### **Why we want to do that?**
+
+- Below is the image of question with bunch of work through solutions:
+
+<Img
+   src={`/re-info-learning.png`}
+   alt="rl-img"
+   width={1600}
+   height={836}
+/>
+
+- There are bunch of answers and all are correct btw. But all of this token sequences might be trivial->(very easy, simple, or unimportant) for me as a human, but for llm it might be very much of a leap->(big jump, big challenge).
+- So that's why we don't know what solution to get to the llm.
+- **So we want llm to discover the token sequences that work for it. It needs to find itself, what tokens good to it's self.**
+
+## 12. **Why deep DeepSeek-R1 is big deal?**
+
+- AS we discussed above, we're going to use **Reinforcement learning** to train llm. But we have to keep in mind that pre-training and post-training are meture way of traning it's been there for years.
+- But RL training is immature, lot more early in it's process of development. And not standard yet in the field.
+- That's why it was not discussed publicly very much by big companies.
+
+re-evaluating steps
+
+**The DeepSeek-R1 paper has garnered significant attention due to its innovative approach in enhancing reenforcement learning.**
+
+### **How it does that?**
+- So basically what they discovered is that the, model solutions gets very long partially->(not fully done or only a part of it is true) is because model learns to do stuff like this **"Wait, wait. Wait. That's an aha moment I can flag here"**, it reevaluate itself asking lot of other question/ideas, tries something from **different perspectives**, **retrace**, **reframe**, **backtrack**.
+- So this stuff can't be hardcoded in ideal assistant response. This is something that can be discovered in the process of reinforcement learning.
+- It improves the accuracy in problem solving.
+
+<Sticker>
+ So model learns with chains of thought, so model is discovering ways to think. It's same like learning through cognitive strategies.
+</Sticker>
