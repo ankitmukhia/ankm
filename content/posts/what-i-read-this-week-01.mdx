@@ -94,7 +94,7 @@ GPT-2 was published in 2019.
 - **In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
 
 <Sticker>
- Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** (it is the setting of the parameters of this trained network). And this base model is basically an internet document simulator.
+ Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** (it is the setting of the parameters of this trained network). And this base model is basically an **internet document simulator ->(Mimics real things, For ex: Flight Simulator, A fake airplane cockpit for practic.)**
 </Sticker>
 
 ## 8. **Post training(conversation)**
@@ -175,5 +175,36 @@ Allow model to search.
    width={1600}
    height={836}
 />
+
+<Img 
+   src={`/vr-wm.png`}
+   alt="mitigation2-protocol-img"
+   width={1600}
+   height={836}
+/>
+
+## 10. **Model needs token to think**
+Distributing your computations across many tokens can potentially lead you to better results.
+
+### **Consider below image prompt for example:**
+
+<Img
+   src={`/prompt.png`}
+   alt="prompt-img"
+   width={1600}
+   height={836}
+/>
+
+- There is finite number of computation layer in **Neural network (From previouse token sequence to next probabilitie token sequence)**. There is fix amount of compute that's going to happen in this NN->(Think if it like mathematical box with bunch of layer for each and every single one of tokens).
+- As just stated, there is **finite number of tokens** in Neural network. So there is limit to how much computation can happen in one single token.
+- That's why distributing your token makes sense. **Let's say a single token takes 10% of the computation for the same question, but distributing tokens will require more computation, which can lead to a much better result than using a single token.**
+
+### **Models can't count**
+- So we are asking for counting, it's way too much in a single individual token. So in Neural network it has to do that in single go. If you see neural network there's not much computation that can happen for sinlge token.
+
+### **Models are not good with spelling**
+Models don't see characters like our eyes do. They see it as tokens.
+
+## 11. **Reinforcement Learning**  
 
 
