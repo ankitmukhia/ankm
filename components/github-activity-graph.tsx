@@ -1,7 +1,4 @@
 import GitHubCalendar from 'react-github-calendar'
-import { SiGithub } from '@icons-pack/react-simple-icons';
-import { Github } from '../lib/constants'
-import Link from 'next/link'
 
 const explicitTheme = {
 	light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
@@ -9,13 +6,8 @@ const explicitTheme = {
 };
 
 export const GithubActivityGraph = () => {
-	return <div className="group relative">
-		<div className="absolute bg-gray-900/80 inset-0 opacity-0 group-hover:opacity-100 flex z-10 items-center group:hover:opacity-100 transition-opacity justify-center">
-			<Link target="__blank" href={Github} className="cursor-pointer">
-				<SiGithub color="white" size={22} />
-			</Link>
-		</div>
-		<div className="border border-white/5 rounded-lg p-4">
+	return (
+		<div className="border border-white/5  rounded-lg p-4">
 			<GitHubCalendar
 				username="ankitmukhia"
 				blockSize={7.5}
@@ -23,5 +15,5 @@ export const GithubActivityGraph = () => {
 				colorScheme={"dark"}
 			/>
 		</div>
-	</div>
+	)
 }
