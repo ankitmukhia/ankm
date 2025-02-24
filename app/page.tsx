@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
-import { socials } from '@/lib/constants'
+import { socials, projects } from '@/lib/constants'
 import { GithubActivityGraph } from '@/components/github-activity-graph'
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
+import { ProjectPreview } from '@/components/project-preview'
 
 export default function Home() {
   return (
@@ -49,6 +50,12 @@ export default function Home() {
 
 	  <div className="mt-2 font-satoshi space-y-2">
 	    <GithubActivityGraph />	 
+	  </div>
+
+	  <div className="mt-2 font-satoshi space-y-2">
+	     {projects.map((project) => (
+		<ProjectPreview key={project.id} {...project} /> 
+	     ))}	
 	  </div>
 	</>
     );

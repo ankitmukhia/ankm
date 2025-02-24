@@ -14,10 +14,6 @@ export default {
         sans: ["var(--font-instrument)", ...defaultTheme.fontFamily.sans],
 	satoshi: ["var(--font-satoshi)"],
       },
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
     },
   },
   plugins: [

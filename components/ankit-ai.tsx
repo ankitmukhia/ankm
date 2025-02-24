@@ -9,7 +9,7 @@ export const AnkitAI = () => {
 		<div className="flex h-[600px] flex-col">
 		   <div 
 		     ref={chatContainerRef}
-		     className="border-body/5 rounded-lg p-4 overflow-y-auto"
+		     className="border border-white/5 rounded-lg p-4 overflow-y-auto"
 		    >
 		    <div>Ankit</div>
 		   </div>

@@ -10,9 +10,10 @@ export const GithubActivityGraph = () => {
 		<div className="border border-white/5  rounded-lg p-4">
 			<GitHubCalendar
 				username="ankitmukhia"
+				fontSize={12}
 				blockSize={7.5}
 				theme={explicitTheme}
-				colorScheme={"dark"}
+				colorScheme="dark"
 			/>
 		</div>
 	)

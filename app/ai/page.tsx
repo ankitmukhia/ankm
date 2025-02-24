@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
-import { Chat } from '@/components/chat'
+import { AnkitAI } from '@/components/ankit-ai'
 
 import Link from 'next/link'
 
@@ -23,7 +23,7 @@ export default function Page() {
 		 </div>
 
 	         <div className="mt-2 font-satoshi space-y-2">
-		   <Chat />
+		   <AnkitAI />
 		 </div>
 	  </div>
 	)
