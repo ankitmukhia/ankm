@@ -20,7 +20,6 @@ export interface Project {
 }
 
 const githubIconSize = 20;
-const liveLinkIconSize = 22;
 export const Github = "http://github.com/ankitmukhia" 
 const Livelink = "https://ankitmukhia.vercel.app/"
 
@@ -93,17 +92,6 @@ export const projects: Array<Project> = [
     liveLink: Livelink, 
     imageUrl: "https://myweatherapp.com/images/weather-screenshot.png",
     date: "2023-09-25",
-    githubIcon: <SiGithub size={githubIconSize} />,
-  },
-  {
-    id: 5,
-    title: "Chat Application",
-    description: "A real-time chat application built with WebSocket for instant messaging.",
-    technologies: ["Node.js", "Socket.io", "React"],
-    githubLink: Github,
-    liveLink: Livelink, 
-    imageUrl: "https://mychatapp.com/images/chat-screenshot.png",
-    date: "2023-10-10",
     githubIcon: <SiGithub size={githubIconSize} />,
   }
 ]

@@ -1,61 +1,26 @@
-import Link from 'next/link'
-import { Logo } from '@/components/logo'
-import { socials, projects } from '@/lib/constants'
+import { Nav } from '@/components/nav'
+import { projects } from '@/lib/constants'
 import { GithubActivityGraph } from '@/components/github-activity-graph'
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { ProjectPreview } from '@/components/project-preview'
 
 export default function Home() {
   return (
 	<>
-	  <div className="space-y-4 mt-4">
-	    <nav className="flex tracking-wide pb-8 items-center justify-between space-x-6">
-	       <Logo />
-
-	       <Link href="/ai" className="text-lg hover:underline underline-offset-4 tracking-wide">
-	         ankit://ai
-	       </Link>
-	    </nav>
-
-	    <div className="mt-2">
-              <h1 className="text-4xl tracking-wider leading-none">
-                Ankit Mukhia
-              </h1>
-              <h2 className="mt-4 items-center font-satoshi space-y-2 text-lg leading-none lg:mt-4 lg:flex lg:space-y-0 lg:space-x-2">
-	        developer
-              </h2>
-
-              <h2 className="mt-6 items-center font-satoshi space-y-2 text-lg font-thin leading-none lg:mt-6 lg:flex lg:space-y-0 lg:space-x-2">
-	        Hi, my name is Ankit, I tinker with code on my trusty machine.
-              </h2>
-
-	      <div className="flex items-center space-x-2">
-	       {socials.map((social) => (
-		 <Link 
-		   key={social.name} 
-		   href={social.url} 
-		   target="_blank" 
-		   className="flex group mt-4 xl:mt-6 font-satoshi items-center gap-2 hover:underline underline-offset-4 tracking-wide"
-		 >
-		     <social.icon size={16} />
-		     <div className="flex items-center">
-		      {social.name}
-		      <ArrowUpRightIcon className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-		     </div>
-		 </Link>
-	       ))}
-	      </div>
-            </div>
+	  <div className="mt-2">
+	    <Nav />
 	  </div>
 
-	  <div className="mt-2 font-satoshi space-y-2">
+	  <div className="mt-2">
 	    <GithubActivityGraph />	 
 	  </div>
 
-	  <div className="mt-2 font-satoshi space-y-2">
-	     {projects.map((project) => (
-		<ProjectPreview key={project.id} {...project} /> 
-	     ))}	
+	  <div className="mt-4">
+	    <h2 className="text-lg pb-4 font-satoshi leading-none">
+   	      Projects 
+   	    </h2>
+	    {projects.map((project) => (
+	       <ProjectPreview key={project.id} {...project} /> 
+	    ))}	
 	  </div>
 	</>
     );

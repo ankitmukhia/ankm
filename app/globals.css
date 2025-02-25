@@ -1,13 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-hoverColor: #8FA8FA;
+
+  --font-*: initial;
+  --font-sans: Satoshi, sans-serif;
+  --font-serif: "Instrument Serif";
+}
 
 @layer base {
   body {
     @apply text-white;
+  },
+  .layout-sm {
+    @apply grid grid-cols-[1fr_min(640px,100%)_1fr];
+  },
+  .layout-xl {
+    @apply grid grid-cols-[1fr_minmax(auto,15rem)_min(640px,100%)_minmax(auto,15rem)_1fr];
   }
 }
 
-@layer utilities {
-  
+@layer components {
+  .gradient-circle {
+    @apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90
+  }
 }

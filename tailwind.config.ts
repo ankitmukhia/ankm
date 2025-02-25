@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
-import plugin from 'tailwindcss/plugin'
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: [
@@ -12,7 +12,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-instrument)", ...defaultTheme.fontFamily.sans],
-	satoshi: ["var(--font-satoshi)"],
+        satoshi: ["var(--font-satoshi)"],
       },
     },
   },

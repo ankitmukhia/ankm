@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export default function Page() {
 	return (
-	    <div className="space-y-2 mt-4">
-	       <div className="pb-6">
+	    <div className="space-y-2 mt-2">
+	       <div className="pb-8">
 	          <Link href="/">
 		    <ArrowLeftIcon className="w-5 h-5" />
 		  </Link>
@@ -22,7 +22,7 @@ export default function Page() {
                    </h2>
 		 </div>
 
-	         <div className="mt-2 font-satoshi space-y-2">
+		 <div className="mt-2">
 		   <AnkitAI />
 		 </div>
 	  </div>

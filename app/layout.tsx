@@ -1,15 +1,9 @@
 import type { Metadata } from 'next'
-import { Instrument_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 
+import { Footer } from '@/components/footer'
 import clsx from 'clsx'
-
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: "400",
-})
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
@@ -30,8 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={clsx(`font-sans bg-stone-900 selection:bg-[#936F51] selection:text-white antialiased`, 
-	  instrument.variable, satoshi.variable
+        className={clsx(`font-sans bg-stone-900 selection:bg-blue-400/40 selection:text-white antialiased`, 
+	  satoshi.variable, 
 	)}>
        <svg
           className="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
@@ -49,8 +43,10 @@ export default function RootLayout({
           <rect width="100%" height="100%" filter="url(#noise)" />
         </svg>
 
-        <div className="layout-sm relative z-10 grid gap-y-8 px-4 xl:layout-xl xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3">
+        <div className="grid grid-cols-[1fr_min(640px,100%)_1fr] relative z-10 gap-y-4 px-4 xl:grid-cols-[1fr_minmax(auto,15rem)_min(640px,100%)_minmax(auto,15rem)_1fr] xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3">
          {children}
+
+	 <Footer />
 	</div>
       </body>
     </html>
