@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react'
 import { useChat } from '@ai-sdk/react'
+import { ArrowUpIcon } from '@heroicons/react/24/outline'
 
 export const AnkitAI = () => {
 	const chatContainerRef = useRef<HTMLDivElement>(null)
@@ -9,37 +10,68 @@ export const AnkitAI = () => {
 
 	useEffect(() => {
    	   if(chatContainerRef.current) {
-	     		
-   	   }	
-	}, [])
+	     const scrollToBottom = () => {
+		     // scrollHeight: height of current area
+		     // scrollTo: scrolles to the bottom based on the changing height
+		     chatContainerRef.current?.scrollTo({
+		        top: chatContainerRef.current!.scrollHeight,
+		        behavior: "smooth"
+		     })
+	     }
+
+	     setTimeout(scrollToBottom, 100)
+   	   }
+	}, [messages])
 
 	return (
-		<div className="flex h-[600px] mt-6 xl:mt-6 font-satoshi flex-col">
+		<div className="relative flex flex-col h-[600px] text-sm font-satoshi">
+		   <div className="absolute right-0 overflow-y-auto bg-blue-500 gradient-circle" />
+		      {messages.length === 0 && (
+		        <div className="absolute left-6 max-w-xs top-6 border-body/5 flex-1 bg-green-300/30 overflow-y-auto rounded-xl border p-4">
+		          <p className="text-sm text-green-300">Hi, I am ankit&apos;s AI, ask me anything about him!</p>
+		        </div>
+		      )}
 		   <div 
 		     ref={chatContainerRef}
-		     className="border border-white/5 rounded-lg p-4 overflow-y-auto"
-		    >
+   		     className="border-body/5 flex-1 overflow-y-auto rounded-2xl border p-4"
+		   >
 		     <div>
 		       {messages.map((msg => {
-			 console.log("message: ", msg)
 			return (
- 			 <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-			   {msg.content}
+ 			 <div 
+			   key={msg.id} 
+			   className={`flex mb-4 
+			    ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+			 >
+			  <div
+                           className={`${
+				msg.role === "user"
+				? "rounded-full border border-body/5 bg-orange-300/30 text-orange-300"
+				: "rounded-full border border-body/5 bg-green-300/30 text-green-300"
+				} max-w-xs rounded-lg px-2.5 py-1.5`}
+			  >
+			   <p>{msg.content}</p>
+			  </div>
  			 </div>
 		       )}))}
 		     </div>
+		   </div>
 
-		     <form onSubmit={handleSubmit}>
-		       <input
-		      	  className="fixed dark:bg-zinc-900 bottom-0 w-full max-w-md p-2 mb-8 border border-zinc-300 dark:border-zinc-800 rounded shadow-xl"
-		          value={input}
-		          placeholder="Say something..."
-		          onChange={handleInputChange}
+		   <form className="relative mt-4 w-full" onSubmit={handleSubmit}>
+		      <input
+		      	 className="w-full h-12 pl-4 rounded-full border-body/5 border"
+		         value={input}
+		         placeholder="Ask me anything..."
+		         onChange={handleInputChange}
 		      />
 
-		      <button type="submit" className="fixed dark:bg-zinc-900 bottom-0 right-0 w-full max-w-md p-2 mb-8 border border-zinc-300 dark:border-zinc-800 rounded shadow-xl">Send</button>
-      	 	     </form>
-		   </div>
+		      <button 
+		        type="submit" 
+		        className="absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-hoverColor/40 flex items-center justify-center" 
+		      >
+		        <ArrowUpIcon className="w-4 h-4 text-blue-300" />
+		      </button>
+      	 	   </form>
 		</div>
 	)
 }

@@ -6,16 +6,18 @@ import { ProjectPreview } from '@/components/project-preview'
 export default function Home() {
   return (
 	<>
-	  <div className="mt-2">
+	  {/* this padding will go afterwards to sideHeader */}
+	  <div className="space-y-8">
 	    <Nav />
 	  </div>
 
+	  {/* this margin will work when the nav convert to animated box */}
 	  <div className="mt-2">
 	    <GithubActivityGraph />	 
 	  </div>
 
-	  <div className="mt-4">
-	    <h2 className="text-lg pb-4 font-satoshi leading-none">
+	  <div className="mt-2 space-y-2">
+	    <h2 className="text-[1rem] pb-4 font-satoshi leading-none">
    	      Projects 
    	    </h2>
 	    {projects.map((project) => (

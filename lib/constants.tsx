@@ -7,6 +7,11 @@ export interface Social {
  icon: IconType 
 }
 
+export interface PreQuery {
+  id: number
+  query: string
+}
+
 export interface Project {
   id: number
   title: string;
@@ -43,7 +48,7 @@ export const socials: Social[] = [
   },
   {
     name: "weekly reads",
-    url: "https://readme.ankm.xyz",
+    url: "/p",
     icon: SiReaddotcv 
   }
 ]
@@ -94,4 +99,19 @@ export const projects: Array<Project> = [
     date: "2023-09-25",
     githubIcon: <SiGithub size={githubIconSize} />,
   }
+]
+
+export const preQueries = [
+   {
+     id: 1, 
+     query: "What are your skills?",
+   },
+   {
+     id: 2, 
+     query: "Are you available for work?",
+   },
+   {
+     id: 3, 
+     query: "Are you open to full-time or freelance opportunities?",
+   },
 ]

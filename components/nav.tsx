@@ -8,37 +8,37 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 export const Nav = () => {
 	return (
 		<>
-		   <nav className="flex tracking-wide pb-8 items-center justify-between space-x-6">
+		   <nav className="flex tracking-wide my-8 items-center justify-between space-x-6">
 			<Logo />
 
-			<Link href="/ai" className="font-satoshi hover:underline underline-offset-4 tracking-wide">
+			<Link href="/ai" className="font-satoshi hover:underline underline-offset-4">
 				ankit://ai
 			</Link>
 		    </nav>
 
-		    <div className="mt-2">
-			<h1 className="text-4xl font-serif tracking-wider leading-none">
+		    <div className="mt-2 space-y-4">
+			<h1 className="text-[2.5rem] font-serif tracking-wider leading-none">
 				Ankit Mukhia
 			</h1>
-			<h2 className="mt-4 items-center font-satoshi space-y-2 text-lg leading-none lg:mt-4 lg:flex lg:space-y-0 lg:space-x-2">
+			<h2 className="font-satoshi text-[1rem] leading-none lg:space-y-0 lg:space-x-2">
 				developer
 			</h2>
 
-			<h2 className="mt-6 items-center font-satoshi space-y-2 text-lg font-thin leading-none lg:mt-6 lg:flex lg:space-y-0 lg:space-x-2">
+			<h2 className="pt-4 font-satoshi text-[1rem] font-thin leading-none lg:space-y-0">
 				Hi, my name is Ankit, I tinker with code on my trusty machine.
 			</h2>
 
-			<div className="flex items-center space-x-2">
+			<div className="flex items-center pt-2 space-x-2">
 				{socials.map((social) => (
 					<Link
 						key={social.name}
 						href={social.url}
-						target="_blank"
-						className="flex group mt-4 xl:mt-6 font-satoshi items-center gap-2 hover:underline underline-offset-4 tracking-wide"
+						target={social.name === "weekly reads" ? "_self" : "_blank"}
+						className="flex group font-satoshi items-center gap-2 hover:underline underline-offset-4 tracking-wide"
 					>
-						<social.icon size={16} />
+						<social.icon size={14} />
 						<div className="flex items-center">
-							{social.name}
+							<p className="text-sm">{social.name}</p>
 							<ArrowUpRightIcon className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
 						</div>
 					</Link>

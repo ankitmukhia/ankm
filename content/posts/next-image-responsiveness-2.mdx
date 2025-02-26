@@ -1,0 +1,25 @@
+---
+title: Next Image Responsiveness
+description: Next Image Responsiveness
+publishedAt: 2025-01-07
+status: unpublished
+coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+---
+
+```js
+<div className="flex flex-col items-center justify-center min-h-screen">
+   <div className="relative w-2/4 h-2/4">
+     <img
+      src="image/url"
+      alt="image"
+      width={700}
+      height={435}
+      sizes="100vw"
+      style={{
+           width: "100%",
+           height: "auto",
+        }}
+     />
+    </div>
+ </div>
+```

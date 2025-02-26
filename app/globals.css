@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
+  --color-body: #ffffff;
   --color-hoverColor: #8FA8FA;
 
   --font-*: initial;

@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Instrument_Serif } from 'next/font/google'
 import './globals.css'
 
-import { Footer } from '@/components/footer'
 import clsx from 'clsx'
+
+const instrument = Instrument_Serif({
+   variable: "--font-instrument",
+   weight: "400",
+   subsets: ["latin"]
+})
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
@@ -25,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={clsx(`font-sans bg-stone-900 selection:bg-blue-400/40 selection:text-white antialiased`, 
-	  satoshi.variable, 
+	  satoshi.variable, instrument.variable
 	)}>
        <svg
           className="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
@@ -45,8 +51,6 @@ export default function RootLayout({
 
         <div className="grid grid-cols-[1fr_min(640px,100%)_1fr] relative z-10 gap-y-4 px-4 xl:grid-cols-[1fr_minmax(auto,15rem)_min(640px,100%)_minmax(auto,15rem)_1fr] xl:gap-x-9 xl:px-0 [&>*]:col-start-2 xl:[&>*]:col-start-3">
          {children}
-
-	 <Footer />
 	</div>
       </body>
     </html>
