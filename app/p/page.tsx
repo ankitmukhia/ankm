@@ -1,5 +1,6 @@
 import { allPosts, Post } from 'contentlayer/generated'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { PostPreview } from '@/components/post-preview'
 import Link from 'next/link'
 
 export default function Page() {
@@ -21,17 +22,9 @@ export default function Page() {
 	   </h2>
 	 </div>
 
-	 <div className="space-y-4">
-	   {allPosts.map((post: Post) => (
-	      <div key={post._id} className="flex flex-col space-y-2">
-		 <Link href="#">
-		    <h3 className="text-[1rem] leading-none">
-		      {post.title}
-		    </h3>
-		 </Link>
-
-		 <p className="text-sm font-thin leading-7">{post.description}</p>
-	      </div>
+	 <div className="space-y-6">
+	   {allPosts.map((post: Post, _idx) => (
+	      <PostPreview key={post._id} post={post} index={_idx} />
 	   ))}
 	 </div>
        </div>

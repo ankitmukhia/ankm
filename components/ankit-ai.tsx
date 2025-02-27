@@ -57,9 +57,9 @@ export const AnkitAI = () => {
 		     </div>
 		   </div>
 
-		   <form className="relative mt-4 w-full" onSubmit={handleSubmit}>
+		   <form className="relative focus-within:outline-1 focus-within:outline-green-300/30 rounded-full mt-4 w-full" onSubmit={handleSubmit}>
 		      <input
-		      	 className="w-full h-12 pl-4 rounded-full border-body/5 border"
+		      	 className="w-full h-12 pl-4 outline-none rounded-full border-body/5 border"
 		         value={input}
 		         placeholder="Ask me anything..."
 		         onChange={handleInputChange}
