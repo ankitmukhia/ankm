@@ -2,7 +2,7 @@
 title: What I Read This Week.
 description: React Hooks, Next.js client render.
 publishedAt: 2025-03-14
-status: unpublished
+status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
@@ -52,5 +52,15 @@ A reducer function is where you will put your state logic. It takes two argument
 ```
 
 # Next.js client client render.
+
+Question: As stated by Next.js, component renders on the server. When it server to user/(You), you are seeing already pre-rendered page.?
+
+But if that's true, how all this on the fly interaction is possible? **Ex: You click on a button and it changes the count**.
+
+Answer: You can't do that. Next.js does not allow any interaction on the server-side. It's only for static page generation. But most interesting thing Next.js does on client side is called **hidration**, which is how we can interact with with this pre-rendered pages as well.
+
+Yes, indeed even client components pre-rendered in server, which is good coz it help use faster page load etc. And pre-rendered means the static html files/structure.
+
+**Then for interaction **React** performs process called **hydration**, During hydration, React attaches event listeners and state management to the static HTML, making it fully interactive.
 
 
