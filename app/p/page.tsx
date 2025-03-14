@@ -22,7 +22,7 @@ export default function Page() {
 	   </h2>
 	 </div>
 
-	 <div className="space-y-6">
+	 <div className="space-y-2">
 	   {allPosts.map((post: Post, _idx) => (
 	      <PostPreview key={post._id} post={post} index={_idx} />
 	   ))}

@@ -11,13 +11,13 @@ interface PostPreview {
 
 export const PostPreview: React.FC<PostPreview> = ({post, index}) => {
 	return (
-	   <Link href={`/p/${post.url}`} className={clsx(`flex flex-col`, {
+	   <Link href={`/p/${post.url}`} className={clsx(`flex flex-col items-start font-satoshi`, {
               "border-b border-white/5 pb-4": index === 0 
 	   })}>
-	      <div className="bg-white/5 hover:bg-hoverColor/10 rounded-lg p-4 space-y-2">
+	      <div className="hover-cover px-3">
 		<div>
-		   <h3 className="text-[1rem] leading-none">
-		     {post.title}
+	           <h3 className="text-sm group-hover:text-blue-300">
+		      {post.title}
 		   </h3>
 
 		   <h4 className="pt-2 text-sm font-thin">
@@ -25,9 +25,7 @@ export const PostPreview: React.FC<PostPreview> = ({post, index}) => {
 		   </h4>
 		</div>
 		
-		<div>
-		   <p className="text-sm font-thin">{post.description}</p>
-		</div>
+	        <p className="text-sm font-thin">{post.description}</p>
 	      </div>
 	  </Link>
 	)
