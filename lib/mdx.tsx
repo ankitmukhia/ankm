@@ -9,21 +9,21 @@ export const components = {
   Sticker,
   h1: (props: React.ComponentProps<"h1">) => (
     <h2
-      className="relative border-t-2 border-rose-200/5 pt-9 text-xl font-medium text-rose-200/95 sm:text-3xl"
+      className=""
       {...props}
     />
   ),
   h2: (props: React.ComponentProps<"h2">) => (
     <h3
-      className="relative mt-3 border-t-2 border-rose-200/5 pt-9 text-xl font-medium text-rose-200/95 sm:text-2xl"
+      className=""
       {...props}
     />
   ),
   h3: (props: React.ComponentProps<"h3">) => (
-    <h4 className="text-xl font-medium text-rose-200/95" {...props} />
+    <h4 className="" {...props} />
   ),
   h4: (props: React.ComponentProps<"h4">) => (
-    <h5 className="text-lg font-medium text-rose-200/95" {...props} />
+    <h5 className="" {...props} />
   ),
   ul: (props: React.ComponentProps<"ul">) => (
     <ul
@@ -47,6 +47,6 @@ export const components = {
     />
   ),
   ol: (props: React.ComponentProps<"ol">) => (
-    <ol className="list-decimal space-y-3 pl-10" {...props} />
+    <ol className="list-decimal" {...props} />
   )
 }

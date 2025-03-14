@@ -12,8 +12,8 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
 
 A common question is: *Where do LLMs get their data from?* There are generally two main approaches:
 
-1. **Crawling the web yourself** – This is done by companies like OpenAI, which systematically gather data from the internet.  
-2. **Using public repositories** – For example, non-profit organizations like [Common Crawl](https://commoncrawl.org/) provide large-scale web data for research and development. 
+- **Crawling the web yourself** – This is done by companies like OpenAI, which systematically gather data from the internet.  
+- **Using public repositories** – For example, non-profit organizations like [Common Crawl](https://commoncrawl.org/) provide large-scale web data for research and development. 
 
 ### **How Crawling Works**  
 
@@ -33,12 +33,12 @@ There are additional refinements beyond these initial steps.
 ## 2. **Tokenization**  
 Before training an LLM, raw data needs to be converted into a structured format:
 
-1. **Raw data** → **Bits** → **Bytes**  
-2. **Grouping frequent byte pairs** into symbols → **Tokens**
-3. **Done via** → **Byte pair algorithm**
-4. **Final tokens** used by the model
-5. **Token representation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
-6. **Ex: ** → **ChatGPT uses cl100k_base tokenizer** 
+- **Raw data** → **Bits** → **Bytes**  
+- **Grouping frequent byte pairs** into symbols → **Tokens**
+- **Done via** → **Byte pair algorithm**
+- **Final tokens** used by the model
+- **Token representation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
+- **Ex: ** → **ChatGPT uses cl100k_base tokenizer** 
 
 ## 3. **Neural Network Training**
 
@@ -60,11 +60,16 @@ Before training an LLM, raw data needs to be converted into a structured format:
 />
 
 ## 4. **Inference**
-This is one more major stage of training/working with this network.
-// Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, thos parameters are held fixed.
+
+- This is one more major stage of training/working with this network.
+
+<Sticker>
+ Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, thos parameters are held fixed.
+</Sticker>
 
 ## 5. **With all the learning, let's understand OpenAI's GPT-2**
-GPT-2 was published in 2019.
+
+- GPT-2 was published in 2019.
 
 ### **Transformer neural network with**
 - **1.6B** parameters/weights
@@ -98,12 +103,14 @@ GPT-2 was published in 2019.
 </Sticker>
 
 ## 8. **Post training(conversation)**
-How should assistant interact with human like chatgpt/other.
+
+- How should assistant interact with human like chatgpt/other.
 
 - **Assistant** is being programed by examples, and this is done by [Human labelers](https://www.opporture.org/lexicon/human-workforce-labelers/).
 - We train model on this conversational dataset.
 
 ### **How it works?**
+
 - We take base model, and this base model was trained on internet documents we're now going to take dataset of internet document and throw it out, we gonna substitute a new data-set, which is dataset of conversation.
 - The pre-training dataset is not used directly in post-training; instead, the model trained on the pre-training dataset is further refined/finetuned using different datasets and techniques during the post-training phase.
 - Post-training requires significantly less time and computational power compared to pre-training. Coz dataset we are training with is much much smaller than internet dataset.
@@ -113,7 +120,8 @@ How should assistant interact with human like chatgpt/other.
 </Sticker>
 
 ### **Tokenization of conversation**
-How do we turn conversation into tokens sequences?
+
+- How do we turn conversation into tokens sequences?
 
 - There are prcise rules and protocols for how you represent conversation.
 

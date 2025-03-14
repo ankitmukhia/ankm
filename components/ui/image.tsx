@@ -19,7 +19,7 @@ export const NextImage = (props: ImageProps) => {
 				width: '100%',
 				height: 'auto',
 			}}
-			onLoadingComplete={() => setIsLoading(false)}	
+			onLoad={() => setIsLoading(false)}	
 		/>
 	)
 }

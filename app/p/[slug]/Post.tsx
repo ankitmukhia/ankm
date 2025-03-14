@@ -15,6 +15,10 @@ export default function PostPage(post: Post) {
 	   <Link href="/p">
 	    <ArrowLeftIcon className="w-4 h-4" />
 	   </Link>
+
+	   <div>
+
+	   </div>
 	 </div>
         <MDXComponent components={components} />
       </div>
