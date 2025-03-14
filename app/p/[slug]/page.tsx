@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
 	const slug = (await params).slug
-	const post = allPosts.find((post) => post.url === slug)
+	const post = allPosts.filter((p) => p.status === "published").find((p) => p.url === slug)
 
 	if (!post) {
 		notFound()

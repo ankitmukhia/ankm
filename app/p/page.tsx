@@ -4,6 +4,8 @@ import { PostPreview } from '@/components/post-preview'
 import Link from 'next/link'
 
 export default function Page() {
+  const filteredPost = allPosts.filter((p) => p.status === 'published')
+
   return (
        <div className="space-y-8 my-8">
 	 <div>
@@ -23,7 +25,7 @@ export default function Page() {
 	 </div>
 
 	 <div className="space-y-2">
-	   {allPosts.map((post: Post, _idx) => (
+	   {filteredPost.map((post: Post, _idx) => (
 	      <PostPreview key={post._id} post={post} index={_idx} />
 	   ))}
 	 </div>

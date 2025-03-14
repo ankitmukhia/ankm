@@ -6,7 +6,6 @@ import { ProjectPreview } from '@/components/project-preview'
 export default function Home() {
   return (
 	<>
-	  {/* this padding will go afterwards to sideHeader */}
 	  <div className="space-y-8">
 	    <Nav />
 	  </div>
