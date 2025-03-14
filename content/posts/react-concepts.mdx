@@ -7,9 +7,9 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
 ---
 
 # React useReducer
--- **useReducer** has always been confusing for me, so I learned it in deapth from [this](https://www.youtube.com/watch?v=rgp_iCVS8ys).
+- **useReducer** has always been confusing for me, so I learned it in deapth from [here](https://www.youtube.com/watch?v=rgp_iCVS8ys).
 
-First we have to think that **useReducer** is nothing but soluction to useState after it reaches it's limitations.
+First we have to think that **useReducer** is nothing but solution to useState after it reaches it's limitations.
 
 As your components grow in complexity, it can get harder to see/mantain different components states and update it. As component grow so does t he state logic.
 So to reduce this complexity and keep all your logic in one easy-to-access place we use **useReducer**.
@@ -53,7 +53,7 @@ A reducer function is where you will put your state logic. It takes two argument
 
 # Next.js client client render.
 
-Question: As stated by Next.js, component renders on the server. When it server to user/(You), you are seeing already pre-rendered page.?
+Question: As stated by Next.js, component renders on the server. When it serves to user/(You), you are seeing already pre-rendered page.?
 
 But if that's true, how all this on the fly interaction is possible? **Ex: You click on a button and it changes the count**.
 
@@ -61,6 +61,6 @@ Answer: You can't do that. Next.js does not allow any interaction on the server-
 
 Yes, indeed even client components pre-rendered in server, which is good coz it help use faster page load etc. And pre-rendered means the static html files/structure.
 
-**Then for interaction **React** performs process called **hydration**, During hydration, React attaches event listeners and state management to the static HTML, making it fully interactive.
+Then for interaction **React** performs process called **hydration**, **During hydration, React attaches event listeners and state management to the static HTML, making it fully interactive**.
 
 

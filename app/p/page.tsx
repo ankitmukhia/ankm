@@ -4,7 +4,8 @@ import { PostPreview } from '@/components/post-preview'
 import Link from 'next/link'
 
 export default function Page() {
-  const filteredPost = allPosts.filter((p) => p.status === 'published')
+  // descending order
+  const filteredPost = allPosts.filter((p) => p.status === 'published').sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
 
   return (
        <div className="space-y-8 my-8">
