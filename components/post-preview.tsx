@@ -11,7 +11,7 @@ interface PostPreview {
 
 export const PostPreview: React.FC<PostPreview> = ({post, index}) => {
 	return (
-	   <Link href="#" className={clsx(`flex flex-col`, {
+	   <Link href={`/p/${post.url}`} className={clsx(`flex flex-col`, {
               "border-b border-white/5 pb-4": index === 0 
 	   })}>
 	      <div className="bg-white/5 hover:bg-hoverColor/10 rounded-lg p-4 space-y-2">

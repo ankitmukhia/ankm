@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
 	{
 	  protocol: "https",
 	  hostname: "images.unsplash.com",
-	}
+	},
+	{
+	  protocol: "https",
+	  hostname: "huggingfacefw-blogpost-fineweb-v1.static.hf.space",
+	},
     ],
   },
 };
