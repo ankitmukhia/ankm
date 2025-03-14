@@ -16,7 +16,7 @@ export const PostPreview: React.FC<PostPreview> = ({post, index}) => {
 	   })}>
 	      <div className="hover-cover px-3">
 		<div>
-	           <h3 className="text-sm group-hover:text-blue-300">
+	           <h3 className="text-lg group-hover:text-blue-300">
 		      {post.title}
 		   </h3>
 
