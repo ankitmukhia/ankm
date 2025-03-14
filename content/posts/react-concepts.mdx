@@ -1,0 +1,56 @@
+---
+title: What I Read This Week.
+description: React Hooks, Next.js client render.
+publishedAt: 2025-03-14
+status: unpublished
+coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+---
+
+# React useReducer
+-- **useReducer** has always been confusing for me, so I learned it in deapth from [this](https://www.youtube.com/watch?v=rgp_iCVS8ys).
+
+First we have to think that **useReducer** is nothing but soluction to useState after it reaches it's limitations.
+
+As your components grow in complexity, it can get harder to see/mantain different components states and update it. As component grow so does t he state logic.
+So to reduce this complexity and keep all your logic in one easy-to-access place we use **useReducer**.
+
+We move state logi into a single function outside your component called a **reducer**.
+
+we have this very interesting thought shift, instead of telling React "waht to do" which we did with useState, we specify "what the user just did", it completely changes the perspective.
+
+A reducer function is where you will put your state logic. It takes two arguments: the current state and the action to be performed. It returns the new state.
+
+```js
+ interface Action {
+  type: 'increment' | 'decrement';	 
+ } 
+
+ const initialState = 0;
+
+ const reducer = (state, action: Action) => {
+  switch (action.type) {
+      case 'increment':
+	 return state + 1;
+      case 'decrement':
+	  return state - 1;
+      default:
+	  return state;
+   }
+ }
+
+ export const App = () => {
+  const [count, setCount] = usereducer(reducer, initialState);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount('increment')}>Increment</button>
+      <button onClick={() => setCount('decrement')}>Decrement</button>
+    </div>
+  )
+ }
+```
+
+# Next.js client client render.
+
+
