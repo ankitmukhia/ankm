@@ -1,6 +1,6 @@
 ---
 title: What I Read This Week.
-description: React Hooks, Next.js client render.
+description: React Hooks, Next.js client render, Parallel and Sequential Fetching.
 publishedAt: 2025-03-14
 status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -63,4 +63,56 @@ Yes, indeed even client components pre-rendered in server, which is good coz it 
 
 Then for interaction **React** performs process called **hydration**, **During hydration, React attaches event listeners and state management to the static HTML, making it fully interactive**.
 
+# Parallel and Sequential Fetching
 
+- You need to be aware of two data fetching patterns: Parallel and Sequential. 
+
+## Sequential:
+
+- Used when one request depends on another.
+
+In this pattern, you fetch data in a sequence, one after another. Request in a component tree are dependent on each other. **Longer loading times**.
+
+```js
+function Page(params)  {
+	username = getParams(params)
+	artist = fetchArtist(username)
+
+	return (
+		Display artist name
+		Show loading state while Playlist is loading
+		Render playlist component with artiestId
+	)
+}
+
+function Playlist(artistId) {
+	playlist = fetchPlaylist(artistId)
+
+	return (
+	    Display list playlist
+	)
+}
+```
+- artist = fetchArtist(username)
+
+- <sub>_(here in between we need some loading state while playlist is loading, So we show fallback UI. nested component to prevent blocking the entire route. e.g., [suspense](https://react.dev/reference/react/Suspense), [loading.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming))_</sub>
+
+- playlist = fetchPlaylist(artistId)
+
+
+## Parallel:
+
+- Used when request are independent but should run simultaneously.
+
+Load data at the same time. This reduces the total loading time. **Shorter loading times**.
+
+By default, layout and page segments render **in parallel**.
+
+Blocking issue: if async/await is used inside the same component, it will fall back to sequential. Because, nature of async/await is **blocking**.
+
+#### Optimizing with Promis.all
+- Put multiple request **outside** component.
+
+- Use **Promise.all** to fetch both **artist** and **slbums simultaneously**.
+
+- reduces wait time, but **renders only both request finished.**

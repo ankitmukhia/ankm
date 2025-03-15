@@ -1,6 +1,11 @@
 import { ReactNode } from 'react'
 import { SiGithub, SiX, SiReaddotcv, IconType } from '@icons-pack/react-simple-icons'
 
+export const meta = {
+  title: "ankm.dev",
+  description: "developer",
+}
+
 export interface Social {
  name: string
  url: string
@@ -27,13 +32,6 @@ export interface Project {
 const githubIconSize = 20;
 export const Github = "http://github.com/ankitmukhia" 
 const Livelink = "https://ankitmukhia.vercel.app/"
-
-export const meta = {
-  title: "Ankit",
-  description: "",
-  domain: "ankm.xyz",
-  tagline: "Developer"
-}
 
 export const socials: Social[] = [
   {
