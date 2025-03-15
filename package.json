@@ -25,6 +25,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-github-calendar": "^4.5.5",
+    "react-rough-notation": "^1.0.5",
     "tailwindcss": "^4.0.8"
   },
   "devDependencies": {
