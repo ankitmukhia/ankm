@@ -1,12 +1,14 @@
 ---
 title: What I Read This Week.
-description: React Hooks, Next.js client render, Parallel and Sequential Fetching.
+description: React Hooks, Next.js client render, Sequential & Parallel  Fetching.
 publishedAt: 2025-03-14
 status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
-# React useReducer
+
+# React useReducer.
+
 - **useReducer** has always been confusing for me, so I learned it in deapth from [here](https://www.youtube.com/watch?v=rgp_iCVS8ys).
 
 First we have to think that **useReducer** is nothing but solution to useState after it reaches it's limitations.
@@ -51,7 +53,7 @@ A reducer function is where you will put your state logic. It takes two argument
  }
 ```
 
-# Next.js client client render.
+## Next.js client client render.
 
 Question: As stated by Next.js, component renders on the server. When it serves to user/(You), you are seeing already pre-rendered page.?
 
@@ -116,3 +118,16 @@ Blocking issue: if async/await is used inside the same component, it will fall b
 - Use **Promise.all** to fetch both **artist** and **slbums simultaneously**.
 
 - reduces wait time, but **renders only both request finished.**
+
+# generateStaticParams & generateMetadata
+
+- **generateStaticParams** is used to generate static paths for your dynamic routes.
+
+```js
+ export const generateStaticParams() {
+    return allPosts.filter((p) => p.publishedAt === "published").
+                    map(p => p.slug === params.slug)
+ }
+```
+
+Above code snippet is used to generate static paths, we are caching the dynamic route values such that it does not calculate or make a request each time we trigger this dynamic page. First, it caches, then it remains the same across other triggers.
