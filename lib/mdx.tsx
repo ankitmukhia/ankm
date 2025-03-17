@@ -9,13 +9,13 @@ export const components = {
   Sticker,
   h1: (props: React.ComponentProps<"h1">) => (
     <h2
-      className=""
+      className="text-2xl font-bold text-teal-500"
       {...props}
     />
   ),
   h2: (props: React.ComponentProps<"h2">) => (
     <h3
-      className=""
+      className="text-xl font-bold"
       {...props}
     />
   ),
@@ -27,7 +27,7 @@ export const components = {
   ),
   ul: (props: React.ComponentProps<"ul">) => (
     <ul
-      className="space-y-3 [li>&]:mt-3 [&>li]:relative [&>li]:pl-7 before:[&>li]:absolute before:[&>li]:left-1 before:[&>li]:top-2 before:[&>li]:h-1.5 before:[&>li]:w-1.5 before:[&>li]:rounded-full before:[&>li]:bg-rose-200/20"
+      className=""
       {...props}
     />
   ),

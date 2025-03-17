@@ -6,7 +6,7 @@ status: published
 coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
-```js
+```js showLineNumbers title="image.tsx"
 <div className="flex flex-col items-center justify-center min-h-screen">
    <div className="relative w-2/4 h-2/4">
      <img
@@ -23,3 +23,30 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
     </div>
  </div>
 ```
+
+```tsx showLineNumbers title="pages/blog/[slug].tsx" {5,12,20}
+import { allPosts, type Post } from "contentlayer/generated"
+import { type GetStaticProps, type InferGetStaticPropsType } from "next"
+
+export const getStaticPaths = () => ({
+  paths: allPosts.map((post) => ({ params: { slug: post.slug } })),
+  fallback: false,
+})
+
+export const getStaticProps: GetStaticProps<{
+  post: Post
+}> = ({ params }) => ({
+  props: { post: allPosts.find((post) => post.slug === params?.slug) },
+})
+
+export default function SinglePostPage(
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+) {
+  return (
+    <div>
+      <h1>{props.post.title}</h1>
+    </div>
+  )
+}
+```
+

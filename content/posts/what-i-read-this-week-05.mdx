@@ -22,7 +22,7 @@ we have this very interesting thought shift, instead of telling React "waht to d
 
 A reducer function is where you will put your state logic. It takes two arguments: the current state and the action to be performed. It returns the new state.
 
-```js
+```js title="reducer.tsx"
  interface Action {
   type: 'increment' | 'decrement';	 
  } 
@@ -53,7 +53,7 @@ A reducer function is where you will put your state logic. It takes two argument
  }
 ```
 
-## Next.js client client render.
+# Next.js client component render.
 
 Question: As stated by Next.js, component renders on the server. When it serves to user/(You), you are seeing already pre-rendered page.?
 
@@ -75,7 +75,7 @@ Then for interaction **React** performs process called **hydration**, **During h
 
 In this pattern, you fetch data in a sequence, one after another. Request in a component tree are dependent on each other. **Longer loading times**.
 
-```js
+```tsx
 function Page(params)  {
 	username = getParams(params)
 	artist = fetchArtist(username)
@@ -112,7 +112,7 @@ By default, layout and page segments render **in parallel**.
 
 Blocking issue: if async/await is used inside the same component, it will fall back to sequential. Because, nature of async/await is **blocking**.
 
-#### Optimizing with Promis.all
+## Optimizing with Promis.all
 - Put multiple request **outside** component.
 
 - Use **Promise.all** to fetch both **artist** and **slbums simultaneously**.

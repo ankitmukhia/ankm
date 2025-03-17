@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import clsx from 'clsx'
 
 interface HeadingProps {
 	heading: number
 	slug: string
-	content: string | undefined 
+	content: string | undefined
 }
 
 export const TagTable = ({ headings }: { headings: HeadingProps[] }) => {
@@ -14,7 +15,12 @@ export const TagTable = ({ headings }: { headings: HeadingProps[] }) => {
 			{headings.map((heading) => {
 				return (
 					<div key={heading.slug}>
-						<Link href={`#${heading.slug}`} className="hover:underline hover:text-teal-500 underline-offset-4 cursor-pointer">
+						<Link
+							href={`#${heading.slug}`}
+							className={clsx("flex hover:underline hover:text-teal-500 underline-offset-4 cursor-pointer", {
+									"pl-4": heading.heading === 2 
+							})}
+						>
 							<p>{heading.content}</p>
 						</Link>
 					</div>
