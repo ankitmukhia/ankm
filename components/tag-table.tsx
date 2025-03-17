@@ -1,6 +1,12 @@
 import Link from 'next/link'
 
-export const TagTable = ({ headings }: { headings: any[] }) => {
+interface HeadingProps {
+	heading: number
+	slug: string
+	content: string | undefined 
+}
+
+export const TagTable = ({ headings }: { headings: HeadingProps[] }) => {
 	return (
 		<div className="space-y-3">
 			<p className="uppercase text-sm text-zinc-400/40">on this page</p>
