@@ -20,7 +20,7 @@ export const components = {
     />
   ),
   h3: (props: React.ComponentProps<"h3">) => (
-    <h4 className="" {...props} />
+    <h4 className="text-lg" {...props} />
   ),
   h4: (props: React.ComponentProps<"h4">) => (
     <h5 className="" {...props} />
