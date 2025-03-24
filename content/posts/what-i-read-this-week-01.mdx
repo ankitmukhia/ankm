@@ -45,7 +45,23 @@ Before training an LLM, raw data needs to be converted into a structured format:
 
 ## Process of training / Input vs. Output
 - **Input** - Sequence of tokens from 0 to n → **If we do infinite number of tokens, it is computationally expensive**
-- **Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself.
+- **Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself with in the network. Below is example:
+
+```md
+If the model is predicting the next word in:
+
+"The sky is __"
+
+It might assign probabilities like:
+
+"blue" → 80%
+
+"green" → 10%
+
+"red" → 5%
+
+Other words → Remaining 5%
+```
 
 ## Neural Network internals
 
@@ -64,8 +80,15 @@ Before training an LLM, raw data needs to be converted into a structured format:
 
 - This is one more major stage of training/working with this network.
 
+In inference, we are generating new data from the model, basically seeing what kind of patterns it has internalized in the parameters of its network. The network gives us a probability vector, and what we can do with that probability vector is flip a biased coin—meaning it doesn’t have a 50/50 chance of landing on heads or tails. Instead, the outcome depends on the probabilities in the vector, making it more likely to pick the next word based on what the model has learned.
+
+More in detail: 
+
+In inference, we generate new data from the model by observing the patterns it has learned in its network parameters. The network gives us a probability vector, which tells us how likely each possible next token is.
+Instead of picking randomly, we can think of this as flipping a biased coin—where the outcome isn’t a simple 50/50 chance like a fair coin but is instead weighted based on the probability vector. The higher the probability of a word, the more likely it is to be chosen next.
+
 <Sticker>
- Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, thos parameters are held fixed.
+ Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, those parameters are held fixed.
 </Sticker>
 
 ## With all the learning, let's understand OpenAI's GPT-2

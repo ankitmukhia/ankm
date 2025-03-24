@@ -1,0 +1,40 @@
+---
+title: What I Read This Week.
+description: Drizzle ORM, 
+publishedAt: 2025-03-19
+status: unpublished
+coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+---
+
+
+```md
+Other ORMs and data frameworks tend to deviate/abstract you away from SQL, which leads to a double learning curve: needing to know both SQL and the framework’s API.
+```
+
+Above is a statement that I read from [Drizzle ORM](https://drizzlekit.org/). Which I found very interesting and relevant.
+
+So drizzle is ORM(Object Relational Mapping) for SQL. In more simple words, think of it like middleman between backend and database.
+Helping you interact with the database using [TS](https://www.typescriptlang.org/) instead of raw SQL.
+
+In drizzle **Queries done (using Drizzle-ORM) and migrations are done (using Drizzle-Kit).
+
+# Third callback function in schema.
+
+The third callback func in table declarations is used to define indexes and constraints for the table.
+
+```ts
+	const { pgTable, serial, text } from 'drizzle-orm/pg-core'
+	
+	const users = pgTable('users', {
+		id: serial('id').primaryKey(),
+		name: text('name').notNull(),
+		email: text('email').notNull().unique(),
+		password: text('password').notNull(),
+	},
+		(users) => {
+			return {
+				emailIdx: uniqueIndex('email_idx').on(users.email),
+			}
+		}
+	)
+```
