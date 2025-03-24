@@ -12,8 +12,9 @@ coverImage: "https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w
 
 A common question is: *Where do LLMs get their data from?* There are generally two main approaches:
 
-- **Crawling the web yourself** – This is done by companies like OpenAI, which systematically gather data from the internet.  
-- **Using public repositories** – For example, non-profit organizations like [Common Crawl](https://commoncrawl.org/) provide large-scale web data for research and development. 
+**Crawling the web yourself** – This is done by companies like OpenAI, which systematically gather data from the internet.  
+
+**Using public repositories** – For example, non-profit organizations like [Common Crawl](https://commoncrawl.org/) provide large-scale web data for research and development. 
 
 ## How Crawling Works
 
@@ -24,28 +25,39 @@ A common question is: *Where do LLMs get their data from?* There are generally t
    height={836}
 />
 
-- **Url Filtering** – Excluding data from malware sites, marketing-heavy pages, adult sites, etc.
-- **Text Extraction** – Ignoring computer code, like: HTML elements, css, only extracting text.  
-- **Language Filtering** - Prioritizing content in English (or other target languages), ensuring at least **65% of content** is in the preferred language.
-There are additional refinements beyond these initial steps.
-- **Final data preview** –  [Dataset Preview](https://huggingface.co/datasets/HuggingFaceFW/fineweb)
+**Url Filtering** – Excluding data from malware sites, marketing-heavy pages, adult sites, etc.
+
+**Text Extraction** – Ignoring computer code, like: HTML elements, css, only extracting text.  
+
+**Language Filtering** - Prioritizing content in English (or other target languages), ensuring at least **65% of content** is in the preferred language.
+
+...There are additional refinements beyond these initial steps.
+
+**Final data preview** –  [Dataset Preview](https://huggingface.co/datasets/HuggingFaceFW/fineweb)
 
 # Tokenization
 
 Before training an LLM, raw data needs to be converted into a structured format:
 
-- **Raw data** → **Bits** → **Bytes**  
-- **Grouping frequent byte pairs** into symbols → **Tokens**
-- **Done via** → **Byte pair algorithm**
-- **Final tokens** used by the model
-- **Token representation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
-- **e.g:** → **ChatGPT uses cl100k_base tokenizer** 
+**Raw data** → **Bits** → **Bytes**  
+
+**Grouping frequent byte pairs** into symbols → **Tokens**
+
+**Done via** → **Byte pair algorithm**
+
+**Final tokens** used by the model
+
+**Token representation** → [Tik Tokenizer](https://tiktokenizer.vercel.app)
+
+e.g: → **ChatGPT uses cl100k_base tokenizer** 
 
 # Neural Network Training
 
 ## Process of training / Input vs. Output
-- **Input** - Sequence of tokens from 0 to n → **If we do infinite number of tokens, it is computationally expensive**
-- **Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself with in the network. Below is example:
+
+**Input** - Sequence of tokens from 0 to n → **If we do infinite number of tokens, it is computationally expensive**
+
+**Output** - Output is a predection of what comes next. we sampled initial tokens from our dataset, so we know what will come next. So it finetunes itself with in the network. Below is example:
 
 ```md
 If the model is predicting the next word in:
@@ -65,9 +77,11 @@ Other words → Remaining 5%
 
 ## Neural Network internals
 
-- **Input** - Sequence of tokens from 0 to n.
-- **Parameters/Weights** - Adjustable numbers that help the model learn. Initial values are random. So Initial predection is random. But through process of iteratvely updating the parameters/weight gets adjusted such that output becomes consistent.
-- **Giant mathematical expression** - Input and Parameters/Weights fed into a mathematical expression.
+**Input** - Sequence of tokens from 0 to n.
+
+**Parameters/Weights** - Adjustable numbers that help the model learn. Initial values are random. So Initial predection is random. But through process of iteratvely updating the parameters/weight gets adjusted such that output becomes consistent.
+
+**Giant mathematical expression** - Input and Parameters/Weights fed into a mathematical expression.
 
 <Img
    src={`/nn-internal.png`}
@@ -78,14 +92,13 @@ Other words → Remaining 5%
 
 # Inference
 
-- This is one more major stage of training/working with this network.
+This is one more major stage of training/working with this network.
 
 In inference, we are generating new data from the model, basically seeing what kind of patterns it has internalized in the parameters of its network. The network gives us a probability vector, and what we can do with that probability vector is flip a biased coin—meaning it doesn’t have a 50/50 chance of landing on heads or tails. Instead, the outcome depends on the probabilities in the vector, making it more likely to pick the next word based on what the model has learned.
 
-More in detail: 
+...More in detail: 
 
-In inference, we generate new data from the model by observing the patterns it has learned in its network parameters. The network gives us a probability vector, which tells us how likely each possible next token is.
-Instead of picking randomly, we can think of this as flipping a biased coin—where the outcome isn’t a simple 50/50 chance like a fair coin but is instead weighted based on the probability vector. The higher the probability of a word, the more likely it is to be chosen next.
+In inference, we generate new data from the model by observing the patterns it has learned in its network parameters. The network gives us a probability vector, which tells us how likely each possible next token is. Instead of picking randomly, we can think of this as flipping a biased coin—where the outcome isn’t a simple 50/50 chance like a fair coin but is instead weighted based on the probability vector. The higher the probability of a word, the more likely it is to be chosen next.
 
 <Sticker>
  Note: when talking with chatgpt that model has been trained already, so they have specific set of weights that works well, when you are talking to model as user, all of that is just inference. No more training, those parameters are held fixed.
@@ -93,16 +106,19 @@ Instead of picking randomly, we can think of this as flipping a biased coin—wh
 
 ## With all the learning, let's understand OpenAI's GPT-2
 
-- GPT-2 was published in 2019.
+GPT-2 was published in 2019.
 
 ## Transformer neural network with
-- **1.6B** parameters/weights
-- **1024-token** maximum sequence length. So when sampling chunks of window of token, it is not taking more than 1024 tokens.
-- **Trained on ~100 billion** tokens
+
+**1.6B** parameters/weights
+
+**1024-token** maximum sequence length. So when sampling chunks of window of token, it is not taking more than 1024 tokens.
+
+**Trained on ~100 billion** tokens
 
 # Compute side of training this models
 
-- **Training/optimization** is done on **GPU**. So it is a very fast process. It is done in **parallel**. If you want to train this model you can rent online from platforms like [Lambda](https://lambdalabs.com).
+**Training/optimization** is done on **GPU**. So it is a very fast process. It is done in **parallel**. If you want to train this model you can rent online from platforms like [Lambda](https://lambdalabs.com).
 
 <Img
    src={`/nvidia-h100.png`}
@@ -113,14 +129,19 @@ Instead of picking randomly, we can think of this as flipping a biased coin—wh
 
 # Base Models inference
 
-- The model right after initial pretraining, it's called a base model. Interact with Base model here [Base Model](https://app.hyperbolic.xyz)
-- It is not yet a somthing, response is just a prediction, it is just a vague and probabilistic re-collection of internet documents.
-- Try this on [Base Model](https://app.hyperbolic.xyz), copy wikipedia first sentence and see the response. The pattern will likely repeat.
-- Model outputting memorized text from its training data instead of generating new, original responses also called **regurgitation**.
+The model right after initial pretraining, it's called a base model. Interact with Base model here [Base Model](https://app.hyperbolic.xyz)
+
+It is not yet a somthing, response is just a prediction, it is just a vague and probabilistic re-collection of internet documents.
+
+Try this on [Base Model](https://app.hyperbolic.xyz), copy wikipedia first sentence and see the response. The pattern will likely repeat.
+
+ Model outputting memorized text from its training data instead of generating new, original responses also called **regurgitation**.
 
 ## Pre-training Hallucination
-- If model has not seen during training. It will try to guess the response with its current knowledge parameters. This is called **hallucination**.
-- **In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
+
+If model has not seen during training. It will try to guess the response with its current knowledge parameters. This is called **hallucination**.
+
+**In-Context Learning** means the model learns patterns from examples given in the prompt, without changing its parameters. 
 
 <Sticker>
  Summary of pretraining: we wish to train LLM assistant like ChatGPT, 1st stage: **pre-training**. It comes down to is we take internet documents we break them into these **tokens/atoms** of little text chunks and predict token sequences using NN. The output of this entire stage is this **base model** **(it's a setting of the parameters of this trained network)**. And this base model is basically an **internet document simulator ->(Mimics real things, For ex: Flight Simulator, A fake airplane cockpit for practice.)**
@@ -128,16 +149,19 @@ Instead of picking randomly, we can think of this as flipping a biased coin—wh
 
 # Post training(conversation)
 
-- How should assistant interact with human like chatgpt/other.
+How should assistant interact with human like chatgpt/other.
 
-- **Assistant** is being programed by examples, and this is done by [Human labelers](https://www.opporture.org/lexicon/human-workforce-labelers/).
-- We train model on this conversational dataset.
+**Assistant** is being programed by examples, and this is done by [Human labelers](https://www.opporture.org/lexicon/human-workforce-labelers/).
+
+ We train model on this conversational dataset.
 
 ## How it works?
 
-- We take base model, and this base model was trained on internet documents we're now going to take dataset of internet document and throw it out, we gonna substitute a new data-set, which is dataset of conversation.
-- The pre-training dataset is not used directly in post-training; instead, the model trained on the pre-training dataset is further refined/finetuned using different datasets and techniques during the post-training phase.
-- Post-training requires significantly less time and computational power compared to pre-training. Coz dataset we are training with is much much smaller than internet dataset.
+We take a base model, which was trained on internet documents. We're now going to discard the internet dataset—it is no longer ne eded. Instead, we will substitute a new dataset, which consists of conversations. But we still need the base model’s parameters/weights, as they contain all the learned knowledge from pre-training, including grammar, word relationships, and factual information. These weights will now be refined and adjusted using the new dataset to improve the model’s responses in conversational settings.
+
+The pre-training dataset is not used directly in post-training; instead, the model trained on the pre-training dataset is further refined/finetuned using different datasets and techniques during the post-training phase.
+
+Post-training requires significantly less time and computational power compared to pre-training. Coz dataset we are training with is much much smaller than internet dataset.
 
 <Sticker> 
   Fundamentally we gonna take our base model and we gonna continue training using exact same algorithm exact same everthing as pre-training except we're swapping out dataset for conversation.
@@ -158,11 +182,14 @@ Instead of picking randomly, we can think of this as flipping a biased coin—wh
    height={836}
 />
 
-- Our conversational dataset end up being turned into **one dimensional** sequence of tokens. 
-- Now given this token, we can apply stuff we applied like pre-training.
-- So now we are just predecting next token in the sequence, just like before.
+Our conversational dataset end up being turned into **one dimensional** sequence of tokens. 
+
+Now given this token, we can apply stuff we applied like pre-training.
+
+So now we are just predecting next token in the sequence, just like before.
 
 ## Now how is it look like during inference?
+
 In below image where you see red cross, that is where the conversation cut off during inference. And model now predicting next token.
 
 <Img
@@ -173,9 +200,12 @@ In below image where you see red cross, that is where the conversation cut off d
 />
 
 ## Human data collection
-- To construct this conversation org hires contractors from Upwork or ScaleAI to construct these conversations. So high level human are involved to create these conversations.
-- Example prompt, how it looks like see here: [Example](https://huggingface.co/datasets/OpenAssistant/oasst1/viewer/default/train?row=0)
-- But in recent days, human don't do all the heavy lifting. We now use language model and fine-tuning to create these conversations. **For ex: UltraChat, it take huge amount of synthetic help**
+
+To construct this conversation org hires contractors from Upwork or ScaleAI to construct these conversations. So high level human are involved to create these conversations.
+
+Example prompt, how it looks like see here: [Example](https://huggingface.co/datasets/OpenAssistant/oasst1/viewer/default/train?row=0)
+
+But in recent days, human don't do all the heavy lifting. We now use language model and fine-tuning to create these conversations. **For ex: UltraChat, it take huge amount of synthetic help**
 
 <Sticker>
  **So high level, so what are you talking to in chatgpt?**
@@ -189,18 +219,24 @@ In below image where you see red cross, that is where the conversation cut off d
 </Sticker>
 
 ## Mitigation #1
+
 Preventing hallucinations, how do we fix this?:
 
-- So they **interrogate->(asking questions frequently)** the model to figure out what it knows and doesn't know. They add examples to the training set for things the model doesn't know. **Such that the correct answer to answer this is "model doesn't know them"**.
-- We take that question and create a new conversation in training set so when question occurs, the answer is "sorry i don't know".
-- And if you have few example of this conversation in this training set, model will know it. Then this is called large mitigation for hallucinations.
+So they **interrogate->(asking questions frequently)** the model to figure out what it knows and doesn't know. They add examples to the training set for things the model doesn't know. **Such that the correct answer to answer this is "model doesn't know them"**.
+
+We take that question and create a new conversation in training set so when question occurs, the answer is "sorry i don't know".
+
+And if you have few example of this conversation in this training set, model will know it. Then this is called large mitigation for hallucinations.
 
 ## Mitigation #2
+
 Allow model to search.
 
-- We introduc format or a protocol for how to model to allow to use **Special token -- SEARCH_START | Query | SEARCH_END --**.
-- Giving the llm the opportunity to be factual and actually answer the question. **This is same like, when asked question to you, and you don't know, you go off and search on internet**. We do same things with this models.
-- We do that by introducing tools for model. Insted of inferencing the next token in sequence, it will actually pause generating next token, it will go off and open bing.com and past your query "who is Orson" it will then get all the text and copy past in the [...] and when it comes to [...] it enters the context window->(think of it like, working memory of the model), which is then fed into Neural network. So it's not any more vague recollection, it's data that is in context window and directly available to model.
+We introduc format or a protocol for how to model to allow to use **Special token -- SEARCH_START | Query | SEARCH_END --**.
+
+Giving the llm the opportunity to be factual and actually answer the question. **This is same like, when asked question to you, and you don't know, you go off and search on internet**. We do same things with this models.
+
+We do that by introducing tools for model. Insted of inferencing the next token in sequence, it will actually pause generating next token, it will go off and open bing.com and past your query "who is Orson" it will then get all the text and copy past in the [...] and when it comes to [...] it enters the context window->(think of it like, working memory of the model), which is then fed into Neural network. So it's not any more vague recollection, it's data that is in context window and directly available to model.
 
 <Img 
    src={`/mitigation2-protocol.png`}
@@ -217,6 +253,7 @@ Allow model to search.
 />
 
 # Model needs token to think
+
 Distributing your computations across many tokens can potentially lead you to better results.
 
 ## Consider below image prompt for example:
@@ -228,12 +265,15 @@ Distributing your computations across many tokens can potentially lead you to be
    height={836}
 />
 
-- There is finite number of computation layer in **Neural network (From previouse token sequence to next probabilitie token sequence)**. There is fix amount of compute that's going to happen in this NN->(Think if it like mathematical box with bunch of layer for each and every single one of tokens).
-- As just stated, there is **finite number of tokens** in Neural network. So there is limit to how much computation can happen in one single token.
-- That's why distributing your token makes sense. **Let's say a single token takes 10% of the computation for the same question, but distributing tokens will require more computation, which can lead to a much better result than using a single token.**
+There is finite number of computation layer in **Neural network (From previouse token sequence to next probabilitie token sequence)**. There is fix amount of compute that's going to happen in this NN->(Think if it like mathematical box with bunch of layer for each and every single one of tokens).
+
+As just stated, there is **finite number of tokens** in Neural network. So there is limit to how much computation can happen in one single token.
+
+That's why distributing your token makes sense. **Let's say a single token takes 10% of the computation for the same question, but distributing tokens will require more computation, which can lead to a much better result than using a single token.**
 
 ## Models can't count
-- So we are asking for counting, it's way too much in a single individual token. So in Neural network it has to do that in single go. If you see neural network there's not much computation that can happen for sinlge token.
+
+So we are asking for counting, it's way too much in a single individual token. So in Neural network it has to do that in single go. If you see neural network there's not much computation that can happen for sinlge token.
 
 ## Models are not good with spelling
 Models don't see characters like our eyes do. They see it as tokens.
@@ -249,19 +289,21 @@ The last major stage of learning.
 ## Below is the example of we learn from text books:
 
 <Sticker>
- Learning from school textbooks happens in three stages:  
- 1. **Concept Explanation** – Background knowledge is provided. 
- 2. **Worked Examples** – Solved problems show step-by-step solutions. Experts explaining the solution.
- 3. **Practice Problems** – Questions are given with only final answers; you figure out the solution yourself.
+	 Learning from school textbooks happens in three stages:
 
- Here you'r discovering how to solve these problems, and in the process of that you are relaying on **Background info(which comes from pre-training)** and **Example problems with solution from experts(which is SFT)**.
+   **Concept Explanation** – Background knowledge is provided. 
+   **Worked Examples** – Solved problems show step-by-step solutions. Experts explaining the solution.
+
+	 **Practice Problems** – Questions are given with only final answers; you figure out the solution yourself.
+
+	Here you'r discovering how to solve these problems, and in the process of that you are relaying on **Background info(which comes from pre-training)** and **Example problems with solution from experts(which is SFT)**.
 </Sticker>
 
-- **So we gonna give **questions** with **final answers** such that model has to **practice** and try stuff out. And that is what reinforcement learning is about.
+So we gonna give **questions** with **final answers** such that model has to **practice** and try stuff out. And that is what reinforcement learning is about.
 
 ## Why we want to do that?
 
-- Below is the image of question with bunch of work through solutions:
+Below is the image of question with bunch of work through solutions:
 
 <Img
    src={`/re-info-learning.png`}
@@ -270,24 +312,31 @@ The last major stage of learning.
    height={836}
 />
 
-- There are bunch of answers and all are correct btw. But all of this token sequences might be trivial->(very easy, simple, or unimportant) for me as a human, but for llm it might be very much of a leap->(big jump, big challenge).
-- So that's why we don't know what solution to get to the llm.
-- **So we want llm to discover the token sequences that work for it. It needs to find itself, what tokens good to it's self.**
+There are bunch of answers and all are correct btw. But all of this token sequences might be trivial->(very easy, simple, or unimportant) for me as a human, but for llm it might be very much of a leap->(big jump, big challenge).
+
+So that's why we don't know what solution to get to the llm.
+
+**So we want llm to discover the token sequences that work for it. It needs to find itself, what tokens good to it's self.**
 
 # Why deep DeepSeek-R1 is big deal?
 
-- AS we discussed above, we're going to use **Reinforcement learning** to train llm. But we have to keep in mind that pre-training and post-training are meture way of traning it's been there for years.
-- But RL training is immature, lot more early in it's process of development. And not standard yet in the field.
-- That's why it was not discussed publicly very much by big companies.
+AS we discussed above, we're going to use **Reinforcement learning** to train llm. But we have to keep in mind that pre-training and post-training are meture way of traning it's been there for years.
+
+But RL training is immature, lot more early in it's process of development. And not standard yet in the field.
+
+That's why it was not discussed publicly very much by big companies.
 
 re-evaluating steps
 
 **The DeepSeek-R1 paper has garnered significant attention due to its innovative approach in enhancing reenforcement learning.**
 
 ## How it does that?
-- So basically what they discovered is that the, model solutions gets very long partially->(not fully done or only a part of it is true) is because model learns to do stuff like this **"Wait, wait. Wait. That's an aha moment I can flag here"**, it reevaluate itself asking lot of other question/ideas, tries something from **different perspectives**, **retrace**, **reframe**, **backtrack**.
-- So this stuff can't be hardcoded in ideal assistant response. This is something that can be discovered in the process of reinforcement learning.
-- It improves the accuracy in problem solving.
+
+So basically what they discovered is that the, model solutions gets very long partially->(not fully done or only a part of it is true) is because model learns to do stuff like this **"Wait, wait. Wait. That's an aha moment I can flag here"**, it reevaluate itself asking lot of other question/ideas, tries something from **different perspectives**, **retrace**, **reframe**, **backtrack**.
+
+So this stuff can't be hardcoded in ideal assistant response. This is something that can be discovered in the process of reinforcement learning.
+
+It improves the accuracy in problem solving.
 
 <Sticker>
  So model learns with chains of thought, so model is discovering ways to think. It's same like learning through cognitive strategies.
