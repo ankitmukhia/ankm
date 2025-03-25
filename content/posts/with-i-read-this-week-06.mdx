@@ -38,3 +38,51 @@ The third callback func in table declarations is used to define indexes and cons
 		}
 	)
 ```
+
+# SQL/Drizzle GroupBy
+
+It's lets you display your data in groups. It's is used with an aggregate function which combines multiple rows of data into one row.
+
+Some aggregate func: Count(), Sum() etc.
+
+Think of it like grouping all the same looking data. And group by clause perfom it operation in **buffer(tmp storage)** not directly in database.
+
+## Example
+
+```ts
+Table name is lets say Comp.
+
+|----------------------|
+| id | Dname   |  Sal  |
+|----------------------|
+| 1	 | sale    |  1500 |
+|----------------------|
+| 2	 | HR      |  1000 |
+|----------------------|
+| 3	 | sale    |  1000 |
+|----------------------|
+| 4	 | product |  5000 |
+|----------------------|
+| 5	 | HR      |  1000 |
+|----------------------|
+| 6	 | sale    |  4000 |
+|----------------------|
+
+1. we want to know, in our company how many dept are there.
+command: select dname from comp group by dname;
+output: sale, HR, product.
+
+2. we want to know, how many sales/HR/product are there:
+command: select dname, count(*) from comp group by dname;
+output: sale: 3, HR: 2, product: 1
+
+3. we want to know, how many by sale now.
+command: select dname, count(*) from comp where comp<= 1000 group by dname;
+output: HR: 2, sale: 1 
+
+4. we want max salaried dept.
+command: select dname, max(sal) from comp group by dname;
+output: product: 5000, sale: 4000, HR: 1000
+```
+
+Now you can play around with bunch of other aggregate function avlb.
