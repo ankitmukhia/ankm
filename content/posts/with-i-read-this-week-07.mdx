@@ -27,7 +27,11 @@ This will add next-video as a dependency in your project and configure necessary
 
  export const Video = () => {
 		return (
-			<VideoPlayer src={TextVideo} stype={{ maxWidth: "23rem" }} accentColor="orange" />
+			<VideoPlayer 
+			   src={TextVideo} 
+				 stype={{ maxWidth: "23rem" }} 
+				 accentColor="orange" 
+			 />
 		)
  }
 ```
@@ -62,7 +66,7 @@ If you have already hosted your video to S3, Cloudinary, etc., then also it is e
 
 When the video loads, the exposed handler, which is GET, is triggered. It looks like this:
 
-``md
+```md
  http://localhost:3000/api/video?url=currentDynamicVideoURL
 ```
 
