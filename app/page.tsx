@@ -10,7 +10,6 @@ export default function Home() {
 				<Nav />
 			</div>
 
-			{/* this margin will work when the nav convert to animated box */}
 			<div className="mt-2">
 				<GithubActivityGraph />
 			</div>

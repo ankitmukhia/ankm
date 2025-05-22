@@ -1,14 +1,17 @@
 'use client'
 
-import { useMDXComponent } from 'next-contentlayer2/hooks'
+//TODO::
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
-import { TagTable } from '@/components/tag-table'
-import { Post } from 'contentlayer/generated'
-import { components } from '@/lib/mdx'
+import { Post as PostType } from '@/utils/all-posts'
 import Link from 'next/link'
 
+interface Post extends PostType {
+	code: string;
+}
+
+
 export default function PostPage(post: Post) {
-	const MDXComponent = useMDXComponent(post.body.code)
+	// const MDXComponent = "Code"
 
 	return (
 		<>
@@ -20,12 +23,11 @@ export default function PostPage(post: Post) {
 
 			{/* need to work on sticky problem next */}
 			<div className="sticky top-6 hidden h-0 xl:!col-start-4 xl:row-start-3 xl:block">
-				<TagTable headings={post.headings} />
 			</div>
 
-			<MDXComponent components={components} />
-
 			<div className="mt-8 bg-green-400" />
+
+			{post.code && post.code}
 		</>
 	)
 }
