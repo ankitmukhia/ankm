@@ -34,9 +34,7 @@ export const post = {
 				};
 			}) as Post[]
 
-
-			const formatedPost = posts.filter((post) => post.status === "published")
-				.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+			const formatedPost = posts.filter((post) => post.status === "published").sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
 
 			return formatedPost;
 

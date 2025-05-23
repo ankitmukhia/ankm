@@ -8,8 +8,8 @@ export default function Page() {
 
 	return (
 		<div className="space-y-8 my-8">
-			<div>
-				<Link href="/">
+			<div className="space-2">
+				<Link href="/" className="inline-flex transaction duration-500 ease-in-out hover:scale-120"> 
 					<ArrowLeftIcon className="w-4 h-4" />
 				</Link>
 			</div>
