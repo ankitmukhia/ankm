@@ -24,7 +24,7 @@ export default function Page() {
 				</h2>
 			</div>
 
-			<div className="space-y-2 pt-4">
+			<div className="space-y-4 pt-4">
 				{allPosts.map((post, _idx) => (
 					<PostPreview key={post.title} post={post} index={_idx} />
 				))}

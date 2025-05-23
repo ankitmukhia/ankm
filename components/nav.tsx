@@ -25,7 +25,7 @@ export const Nav = () => {
 				</h2>
 
 				<h2 className="pt-4 font-satoshi text-[1rem] font-thin leading-none lg:space-y-0">
-					Hi, my name is Ankit, I tinker with code on my trusty machine.
+					Hi, my name is Ankit, I love stuff related to computers.
 				</h2>
 
 				<div className="flex items-center pt-2 space-x-2">

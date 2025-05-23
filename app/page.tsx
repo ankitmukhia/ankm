@@ -10,13 +10,15 @@ export default function Home() {
 				<Nav />
 			</div>
 
-			<div className="mt-2">
+			<div className="mt-5 mb-10">
 				<GithubActivityGraph />
 			</div>
 
-			<div className="mt-2 space-y-2">
-				<h2 className="text-[1rem] pb-4 font-satoshi leading-none">
-					Projects
+			<div className="border-b border-white/5" />
+
+			<div className="mt-10 space-y-6">
+				<h2 className="font-md pb-4 font-satoshi leading-none">
+					Public work
 				</h2>
 
 				{projects.map((project) => (
