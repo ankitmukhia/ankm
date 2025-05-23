@@ -10,6 +10,10 @@ export interface Post {
 	slug: string;
 }
 
+export interface SpecificPost extends Post {
+	body: string;
+}
+
 export const post = {
 	allPostsMetadata: (): Post[] => {
 		try {
@@ -30,16 +34,42 @@ export const post = {
 				};
 			}) as Post[]
 
-			return posts;
+
+			const formatedPost = posts.filter((post) => post.status === "published")
+				.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+
+			return formatedPost;
 
 		} catch (err) {
 			return []
 		}
 	},
-	getPost: (slug: string) => {
-		const rootPath = path.join(process.cwd(), '/content')
-		const dirContent = fs.readdirSync(rootPath, 'utf8')
+	getPost: (slug: string): SpecificPost | null => {
+		try {
+			const rootPath = path.join(process.cwd(), '/content')
+			const dirContent = fs.readdirSync(rootPath, 'utf8')
 
-		// filter out specific content and render it
+			// filter out specific content and return it
+			const post = dirContent.filter((fl) => fl.endsWith('.md') && fl.startsWith(`${slug}`)).map((post) => {
+				const filePath = path.join(rootPath, post)
+				const fileContent = fs.readFileSync(filePath, 'utf8')
+
+				const { data, content } = matter(fileContent)
+
+				// validation most done here
+
+				return {
+					...data,
+					body: content
+				};
+			}) as SpecificPost[]
+
+			const filtered = post.filter((post) => post.status === "published")[0]
+
+			return filtered;
+
+		} catch (err) {
+			return null
+		}
 	}
 }

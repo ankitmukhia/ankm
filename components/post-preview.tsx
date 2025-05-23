@@ -11,10 +11,9 @@ interface PostPreview {
 }
 
 export const PostPreview: React.FC<PostPreview> = ({ post, index }) => {
-
 	return (
 		<Link
-			href="#"
+			href={`/post/${post.slug}`}
 			className={clsx(`flex flex-col items-start font-satoshi`, {
 				"border-b border-white/5 pb-4": index === 0
 			})}

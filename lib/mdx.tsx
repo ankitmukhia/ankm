@@ -31,19 +31,19 @@ export const components = {
       {...props}
     />
   ),
-  Img: ({ ...props}: {} & ImageProps) => (
-   <div className="my-5">
-     <NextImage
-       {...props}
-     />
-  </div>
+  Img: ({ ...props }: {} & ImageProps) => (
+    <div className="my-5">
+      <NextImage
+        {...props}
+      />
+    </div>
   ),
   a: ({ href = "", ...props }: React.ComponentProps<"a">) => (
-    <a 
+    <a
       className={"hover:underline text-blue-400/60"}
-      href={href} 
-      target="_blank" 
-      {...props} 
+      href={href}
+      target="_blank"
+      {...props}
     />
   ),
   ol: (props: React.ComponentProps<"ol">) => (
