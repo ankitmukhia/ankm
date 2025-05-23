@@ -5,6 +5,8 @@ publishedAt: 2025-02-21
 status: published
 ---
 
+### Self Problem
+
 A cognitive strategy is a mental process or technique used to learn, solve problems, or process information effectively. It helps in thinking, remembering, and understanding concepts.
 
 Examples of Cognitive Strategies:

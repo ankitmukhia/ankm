@@ -6,7 +6,7 @@ interface Props {
 
 export const MarkdownRenderer = ({ body }: Props) => {
 	return (
-		<article className="prose">
+		<article className="prose dark:prose-invert">
 			<Markdown
 				options={{
 					overrides: {
@@ -17,7 +17,7 @@ export const MarkdownRenderer = ({ body }: Props) => {
 							component: (props) => <p className="my-2 text-base" {...props} />,
 						},
 						ul: {
-							component: (props) => <ul className="my-2 list-disc list-inside" {...props} />,
+							component: (props) => <ul className="my-2 list-disc list-inside text-white" {...props} />,
 						},
 						li: {
 							component: (props) => <li className="my-1" {...props} />,
@@ -27,8 +27,6 @@ export const MarkdownRenderer = ({ body }: Props) => {
 			>
 				{body}
 			</Markdown>
-
-			<h1 className="text-green-500">Something</h1>
 		</article>
 	)
 }
