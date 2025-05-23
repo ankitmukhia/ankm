@@ -17,32 +17,10 @@
 
 @layer components {
 	.gradient-circle {
-		@apply w-32 h-32 rounded-full bg-[radial-gradient(circle, _rgba(59, 130, 246, 0.8)_0%, _rgba(168, 85, 247, 0.3)_60%, _transparent_100%)] blur-[80px] opacity-90
+		@apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90
 	}
-
 	.hover-cover {
 		@apply -mx-3 w-full space-y-2 rounded-lg px-3 py-2 transform transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:bg-hoverColor/20
 	}
 }
 
-figure {
-	background-color: rgb(50, 50, 50, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 0.8rem;
-}
-
-figcaption {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	padding: 0.5rem 1rem;
-	font-size: 0.8rem;
-}
-
-pre {
-	overflow-x: auto;
-	padding: 1rem 0;
-	font-size: 0.7rem;
-}
-
-pre [data-line] {
-	padding: 0 1rem;
-}
