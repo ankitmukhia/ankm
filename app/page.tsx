@@ -18,7 +18,7 @@ export default function Home() {
 
 			<div className="mt-10 space-y-6">
 				<h2 className="font-md pb-4 font-satoshi leading-none">
-					Public work
+					Public Work
 				</h2>
 
 				{projects.map((project) => (
