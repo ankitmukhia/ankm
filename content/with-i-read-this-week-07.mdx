@@ -1,49 +1,48 @@
 ---
 title: What I Read This Week.
-description: Next video,  
+description: Next video,
 publishedAt: 2025-04-1
-status: draft 
+status: draft
 coverImage: "https://plus.unsplash.com/premium_photo-1674406763863-b64be22c78a9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
-
 # Next Video
 
-First things first, why even use Next Video? Personally, for me, built-in JavaScript video is a lot of work and hard, but not impossible to do. You have to customize a lot of things in-house. 
+First things first, why even use Next Video? Personally, for me, built-in JavaScript video is a lot of work and hard, but not impossible to do. You have to customize a lot of things in-house.
 
 So, Next Video takes out lots of this complexity and makes it easy for you to work with. Also, managing video files is another task.
 
 Talking about easiness, working with **Next Video** is this easy:
 
 ```md
- bun add next-video init
+bun add next-video init
 ```
 
 This will add next-video as a dependency in your project and configure necessary Next.js-level configurations, which is done by init.
 
 ```tsx title="video.tsx"
- import VideoPlayer from 'next-video'
- import TestVideo from '@/videos/test.mp4'
+import VideoPlayer from "next-video";
+import TestVideo from "@/videos/test.mp4";
 
- export const Video = () => {
-		return (
-			<VideoPlayer 
-			   src={TextVideo} 
-				 stype={{ maxWidth: "23rem" }} 
-				 accentColor="orange" 
-			 />
-		)
- }
+export const Video = () => {
+  return (
+    <VideoPlayer
+      src={TextVideo}
+      stype={{ maxWidth: "23rem" }}
+      accentColor="orange"
+    />
+  );
+};
 ```
 
 # Next Video makes it easy to work with video files.
 
 Next Video uses Mux for video storage, optimization, etc. First, go to (Mux)[https://mux.com] and register. Next, upload your required video locally. Check for the videos/ folder that is created by next-video (which we did during the configuration step).
 
-Next run 
+Next run
 
 ```md
- bun next-video sync. 
+bun next-video sync.
 ```
 
 The video will automatically be uploaded/synced to remote storage and optimized. Your local video from the videos/ directory is only going to be used during local development. But once it is uploaded/synced to Mux, then it will use that optimized version, which is now hosted on Mux.
@@ -53,21 +52,21 @@ The video will automatically be uploaded/synced to remote storage and optimized.
 If you have already hosted your video to S3, Cloudinary, etc., then also it is easy to work with. You just have to set up the GET handler that is exposed by `next-video` into `api/video/route.ts`:
 
 ```tsx title="api/video/route.ts"
-	export {GET} from 'next-video/request-handler';
+export { GET } from "next-video/request-handler";
 ```
 
 ```tsx
- import NextVideo from 'next-video';
+import NextVideo from "next-video";
 
- function VideoPlayer() {
-   return <NextVideo src={dynamicUrl} />;
- }
+function VideoPlayer() {
+  return <NextVideo src={dynamicUrl} />;
+}
 ```
 
 When the video loads, the exposed handler, which is GET, is triggered. It looks like this:
 
 ```md
- http://localhost:3000/api/video?url=currentDynamicVideoURL
+http://localhost:3000/api/video?url=currentDynamicVideoURL
 ```
 
 This handler is designed to process video URLs by fetching the video from the specified source(e.g cloudinary, s3), uploading it to Mux for optimization, and then providing an optimized playback URL.

@@ -1,5 +1,5 @@
 ---
-title: Focus is hard 
+title: Focus is hard
 description: Focusing or going deep on something is not easy as you think
 publishedAt: "2025-05-23"
 status: published

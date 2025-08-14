@@ -2,26 +2,25 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-	--color-body: #ffffff;
-	--color-hoverColor: #8FA8FA;
+  --color-body: #ffffff;
+  --color-hoverColor: #8fa8fa;
 
-	--font-*: initial;
-	--font-sans: Satoshi, sans-serif;
-	--font-serif: "Instrument Serif";
+  --font-*: initial;
+  --font-sans: Satoshi, sans-serif;
+  --font-serif: "Instrument Serif";
 }
 
 @layer base {
-	body {
-		@apply text-white;
-	}
+  body {
+    @apply text-white;
+  }
 }
 
 @layer components {
-	.gradient-circle {
-		@apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90
-	}
-	.hover-cover {
-		@apply -mx-3 w-full space-y-2 rounded-lg px-3 py-2 transform transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:bg-hoverColor/20
-	}
+  .gradient-circle {
+    @apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90;
+  }
+  .hover-cover {
+    @apply -mx-3 w-full space-y-2 rounded-lg px-3 py-2 transform transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:bg-hoverColor/20;
+  }
 }
-

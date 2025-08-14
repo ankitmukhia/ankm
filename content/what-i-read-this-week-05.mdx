@@ -6,7 +6,6 @@ status: draft
 coverImage: https://images.unsplash.com/photo-1495055154266-57bbdeada43e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
-
 # React useReducer.
 
 - **useReducer** has always been confusing for me, so I learned it in deapth from [here](https://www.youtube.com/watch?v=rgp_iCVS8ys).
@@ -24,8 +23,8 @@ A reducer function is where you will put your state logic. It takes two argument
 
 ```js title="reducer.tsx"
  interface Action {
-  type: 'increment' | 'decrement';	 
- } 
+  type: 'increment' | 'decrement';
+ }
 
  const initialState = 0;
 
@@ -67,7 +66,7 @@ Then for interaction **React** performs process called **hydration**, **During h
 
 # Parallel and Sequential Fetching
 
-- You need to be aware of two data fetching patterns: Parallel and Sequential. 
+- You need to be aware of two data fetching patterns: Parallel and Sequential.
 
 ## Sequential:
 
@@ -95,12 +94,17 @@ function Playlist(artistId) {
 	)
 }
 ```
+
 - artist = fetchArtist(username)
 
-- <sub>_(here in between we need some loading state while playlist is loading, So we show fallback UI. nested component to prevent blocking the entire route. e.g., [suspense](https://react.dev/reference/react/Suspense), [loading.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming))_</sub>
+- <sub>
+    _(here in between we need some loading state while playlist is loading, So
+    we show fallback UI. nested component to prevent blocking the entire route.
+    e.g., [suspense](https://react.dev/reference/react/Suspense),
+    [loading.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming))_
+  </sub>
 
 - playlist = fetchPlaylist(artistId)
-
 
 ## Parallel:
 
@@ -113,6 +117,7 @@ By default, layout and page segments render **in parallel**.
 Blocking issue: if async/await is used inside the same component, it will fall back to sequential. Because, nature of async/await is **blocking**.
 
 ## Optimizing with Promis.all
+
 - Put multiple request **outside** component.
 
 - Use **Promise.all** to fetch both **artist** and **slbums simultaneously**.
