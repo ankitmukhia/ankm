@@ -7,11 +7,11 @@ const explicitTheme = {
 
 export const GithubActivityGraph = () => {
   return (
-    <div className="flex items-center justify-center font-satoshi border-white/5 rounded-lg ">
+    <div className="flex items-start justify-start font-satoshi border-white/5 rounded-lg ">
       <GitHubCalendar
         username="ankitmukhia"
         fontSize={12}
-        blockSize={10}
+        blockSize={9.5}
         theme={explicitTheme}
         colorScheme="dark"
       />

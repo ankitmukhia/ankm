@@ -6,22 +6,22 @@ import { ProjectPreview } from "@/components/project-preview";
 
 export default function Home() {
   return (
-    <div className="p-4">
+    <div className="p-2 xl:mt-30">
       <GridRowLayout>
-        <div className="space-y-8 p-2">
+        <div className="space-y-8 p-4">
           <Nav />
         </div>
       </GridRowLayout>
 
-      <div className="mt-5 mb-10">
+      <div className="p-4">
         <GithubActivityGraph />
       </div>
 
-      {/* <div className="border-b border-white/5" /> */}
-
-      <div className="mt-10 space-y-6">
+      <div className="space-y-6">
         <GridRowLayout>
-          <h2 className="font-md p-4 font-satoshi leading-none">Public Work</h2>
+          <h2 className="font-md font-light p-4 font-geist leading-none">
+            Public Work
+          </h2>
         </GridRowLayout>
 
         {projects.map((project) => (

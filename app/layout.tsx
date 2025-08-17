@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Geist, Manrope } from "next/font/google";
 import { meta } from "@/lib/constants";
 import "./globals.css";
 
@@ -9,6 +9,18 @@ import clsx from "clsx";
 
 const instrument = Instrument_Serif({
   variable: "--font-instrument",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const geist = Geist({
+  variable: "--font-geist",
+  weight: "200",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   weight: "400",
   subsets: ["latin"],
 });
@@ -33,9 +45,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
-          `font-sans bg-[#111110] selection:bg-blue-400/40 selection:text-white antialiased`,
+          `font-sans bg-[#111110] selection:bg-[#CAE8BD]/70 selection:text-white antialiased`,
           satoshi.variable,
           instrument.variable,
+          geist.variable,
+          manrope.variable,
         )}
       >
         {/* <svg

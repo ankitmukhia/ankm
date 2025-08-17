@@ -2,7 +2,7 @@
 title: Measuring what matters
 description: Measuring what matters can make you productive and more thoughtful output-driven
 publishedAt: "2025-06-11"
-status: unpublished
+status: published
 ---
 
 As a developer, I’ve spent a lot of time chasing output — more commits, more side projects, more lines of code. It felt productive. But lately I’ve been thinking: what if I’m measuring the wrong thing?

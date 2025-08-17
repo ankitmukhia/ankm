@@ -8,6 +8,8 @@
   --font-*: initial;
   --font-sans: Satoshi, sans-serif;
   --font-serif: "Instrument Serif";
+  --font-geist: "Geist";
+  --font-manrope: "Manrope";
 }
 
 @layer base {

@@ -8,7 +8,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 export const Nav = () => {
   return (
     <>
-      <nav className="flex tracking-wide my-8 items-center justify-between space-x-6">
+      {/* <nav className="flex tracking-wide my-8 items-center justify-between space-x-6">
         <Logo />
 
         <Link
@@ -17,18 +17,18 @@ export const Nav = () => {
         >
           ankit://ai
         </Link>
-      </nav>
+      </nav> */}
 
       <div className="mt-2 space-y-4">
-        <h1 className="text-[2.5rem] font-serif tracking-wider leading-none">
+        <h1 className="text-[1.3rem] font-manrope tracking-wider leading-none">
           Ankit Mukhia
         </h1>
-        <h2 className="font-satoshi text-[1rem] leading-none lg:space-y-0 lg:space-x-2">
+        <h2 className="font-geist font-light text-[1rem] leading-none lg:space-y-0 lg:space-x-2">
           developer
         </h2>
 
-        <h2 className="pt-4 font-satoshi text-[1rem] font-thin leading-none lg:space-y-0">
-          Hi, my name is Ankit, I love stuff related to computers.
+        <h2 className="pt-4 font-geist text-[1rem] font-thin leading-none lg:space-y-0">
+          hi, my name is ankit, i love stuff related to computers and design.
         </h2>
 
         <div className="flex items-center pt-2 space-x-2">
@@ -37,7 +37,7 @@ export const Nav = () => {
               key={social.name}
               href={social.url}
               target={social.name === "weekly reads" ? "_self" : "_blank"}
-              className="flex group font-satoshi items-center gap-2 hover:underline underline-offset-4 tracking-wide"
+              className="flex group font-geist items-center gap-2 hover:underline underline-offset-4 tracking-wide"
             >
               <social.icon size={14} />
               <div className="flex items-center">

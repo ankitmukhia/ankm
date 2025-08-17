@@ -6,7 +6,7 @@ interface Props {
 
 export const MarkdownRenderer = ({ body }: Props) => {
   return (
-    <article className="prose dark:prose-invert">
+    <article className="prose dark:prose-invert p-4">
       <Markdown>{body}</Markdown>
     </article>
   );
