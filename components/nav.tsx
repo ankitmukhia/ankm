@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "@/components/logo";
 import { socials } from "@/lib/constants";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 

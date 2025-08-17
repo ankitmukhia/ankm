@@ -101,7 +101,7 @@ export function GridRowLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function GridTopLayout({ children }: { children?: React.ReactNode }) {
+export function GridTopLayout() {
   return (
     <div className="relative">
       <svg
@@ -129,7 +129,7 @@ export function GridTopLayout({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export function GridBottomLayout({ children }: { children?: React.ReactNode }) {
+export function GridBottomLayout() {
   return (
     <div className="relative">
       <svg

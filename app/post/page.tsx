@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { PostPreview } from "@/components/post-preview";
-import { GridRowLayout, GridBottomLayout } from "@/components/grid-layout/grid";
+import { GridRowLayout } from "@/components/grid-layout/grid";
 import { post } from "@/utils/all-posts";
 import Link from "next/link";
 
