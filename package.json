@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.17",
@@ -17,6 +18,7 @@
     "ai": "^4.1.46",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
+    "lint-staged": "^16.1.5",
     "markdown-to-jsx": "^7.7.6",
     "motion": "^12.4.7",
     "next": "15.1.7",
@@ -34,8 +36,14 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
+    "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "typescript": "^5"
   },
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"prettier --write"
+		]
+	},
   "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
 }
