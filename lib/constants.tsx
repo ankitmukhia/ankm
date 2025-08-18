@@ -40,7 +40,7 @@ export const socials: Social[] = [
   },
   {
     name: "twitter",
-    url: "https://x.com/ankitmukhiaX",
+    url: "https://x.com/ankitmukhya",
     icon: SiX,
   },
   {

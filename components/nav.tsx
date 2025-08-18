@@ -36,7 +36,9 @@ export const Nav = () => {
               key={social.name}
               href={social.url}
               target={
-                social.name === "weekly reads" || "chat" ? "_self" : "_blank"
+                social.name === "weekly reads" || social.name === "fun ai"
+                  ? "_self"
+                  : "_blank"
               }
               className="flex group font-geist items-center gap-2 hover:underline underline-offset-4 tracking-wide"
             >
