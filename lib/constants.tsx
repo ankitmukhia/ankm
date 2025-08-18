@@ -2,6 +2,7 @@ import {
   SiGithub,
   SiX,
   SiReaddotcv,
+  SiGooglegemini,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -46,6 +47,11 @@ export const socials: Social[] = [
     name: "weekly reads",
     url: "/post",
     icon: SiReaddotcv,
+  },
+  {
+    name: "fun ai",
+    url: "/ai",
+    icon: SiGooglegemini,
   },
 ];
 

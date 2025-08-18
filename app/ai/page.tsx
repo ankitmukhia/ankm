@@ -5,21 +5,26 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="space-y-8 my-8">
-      <div>
-        <Link href="/">
-          <ArrowLeftIcon className="w-4 h-4" />
-        </Link>
-      </div>
+    <div className="p-2 xl:mt-30">
+      <div className="p-4 space-y-4">
+        <div>
+          <Link
+            href="/"
+            className="inline-flex transaction duration-300 ease-in opacity-40 hover:opacity-100"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
+          </Link>
+        </div>
 
-      <div className="mt-2 space-y-4">
-        <h1 className="text-[2.5rem] font-serif tracking-wider leading-none">
-          ankit://ai
-        </h1>
+        <div className="space-y-4">
+          <h1 className="text-[1.7rem] font-manrope tracking-wider leading-none">
+            ankit://ai
+          </h1>
 
-        <h2 className="font-satoshi text-[1rem] leading-none lg:space-y-0 lg:space-x-2">
-          have a chat with my AI to know more about me!
-        </h2>
+          <h2 className="font-geist text-[1rem] text-gray-200 leading-none lg:space-y-0 lg:space-x-2">
+            skip the boring reading, have a chat instead!
+          </h2>
+        </div>
       </div>
 
       <div>

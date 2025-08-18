@@ -3,9 +3,11 @@
 import { useRef, useEffect } from "react";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
+import { GridTopLayout, GridBottomLayout } from "@/components/grid-layout/grid";
 
 export const AnkitAI = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { messages, input, handleSubmit, handleInputChange } = useChat();
 
   useEffect(() => {
@@ -23,26 +25,32 @@ export const AnkitAI = () => {
     }
   }, [messages]);
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <div className="relative flex flex-col h-[600px] text-sm font-satoshi">
       <div className="absolute right-0 overflow-y-auto bg-blue-500 gradient-circle" />
       {messages.length === 0 && (
-        <div className="absolute left-6 max-w-xs top-6 border-body/5 flex-1 bg-green-300/30 overflow-y-auto rounded-xl border p-4">
-          <p className="text-sm text-green-300">
+        <div className="absolute left-4 max-w-xs top-6 border-body/5 flex-1 bg-green-300/30 overflow-y-auto rounded-xl border p-4">
+          <p className="text-sm text-green-300 font-manrope">
             Hi, I am ankit&apos;s AI, ask me anything about him!
           </p>
         </div>
       )}
-      <div
-        ref={chatContainerRef}
-        className="border-body/5 flex-1 overflow-y-auto rounded-2xl border p-4"
-      >
+
+      <GridTopLayout />
+
+      <div ref={chatContainerRef} className="flex-1 p-4 overflow-y-auto">
         <div>
           {messages.map((msg) => {
             return (
               <div
                 key={msg.id}
-                className={`flex mb-4 
+                className={`flex mb-4 font-manrope
 			    ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
@@ -60,14 +68,17 @@ export const AnkitAI = () => {
         </div>
       </div>
 
+      <GridTopLayout />
+
       <form
-        className="relative focus-within:outline-1 focus-within:outline-green-300/30 rounded-full mt-4 w-full"
+        className="relative focus-within:outline-1 focus-within:outline-gray-500/50 w-full"
         onSubmit={handleSubmit}
       >
         <input
-          className="w-full h-12 pl-4 outline-none rounded-full border-body/5 border"
+          ref={inputRef}
+          className="w-full h-14 pl-4 outline-none placeholder:font-geist"
           value={input}
-          placeholder="Ask me anything..."
+          placeholder="ask me anything..."
           onChange={handleInputChange}
         />
 
@@ -78,6 +89,8 @@ export const AnkitAI = () => {
           <ArrowUpIcon className="w-4 h-4 text-blue-300" />
         </button>
       </form>
+
+      <GridBottomLayout />
     </div>
   );
 };
