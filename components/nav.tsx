@@ -23,7 +23,14 @@ export const Nav = () => {
           Ankit Mukhia
         </h1>
         <h2 className="font-geist font-light text-[1rem] leading-none lg:space-y-0 lg:space-x-2">
-          developer
+          <span className="flex items-center gap-2">
+            developer
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-300 opacity-75"></span>
+              <span className="relative inline-flex size-2 rounded-full bg-lime-400"></span>
+            </span>
+            designer
+          </span>
         </h2>
 
         <h2 className="pt-4 font-geist text-[1rem] font-thin leading-none lg:space-y-0">
@@ -40,7 +47,7 @@ export const Nav = () => {
                   ? "_self"
                   : "_blank"
               }
-              className="flex group font-geist items-center gap-2 hover:underline underline-offset-4 tracking-wide"
+              className="flex group font-geist items-center gap-2 hover:underline underline-offset-4 tracking-wide hover:text-[#CAE8BD]"
             >
               <social.icon size={14} />
               <div className="flex items-center">

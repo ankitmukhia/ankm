@@ -22,12 +22,20 @@ export interface PreQuery {
   query: string;
 }
 
-export interface Project {
+export interface PublicWorksProps {
   id: number;
   title: string;
   description: string;
   liveLink: string;
   date: string;
+}
+
+export interface ProjectProps {
+  id: number;
+  title: string;
+  liveLink: string;
+  domain: string;
+  image: string;
 }
 
 export const Github = "http://github.com/ankitmukhia";
@@ -44,7 +52,7 @@ export const socials: Social[] = [
     icon: SiX,
   },
   {
-    name: "weekly reads",
+    name: "reads",
     url: "/post",
     icon: SiReaddotcv,
   },
@@ -55,7 +63,7 @@ export const socials: Social[] = [
   },
 ];
 
-export const projects: Array<Project> = [
+export const publicWorks: Array<PublicWorksProps> = [
   {
     id: 1,
     title: "Design change as per new design",
@@ -76,6 +84,30 @@ export const projects: Array<Project> = [
     description: "revamped ui for ai-based photo generator.",
     liveLink: "https://github.com/code100x/photo-ai/pull/67",
     date: "2023-08-10",
+  },
+];
+
+export const projects: ProjectProps[] = [
+  {
+    id: 1,
+    title: "Waitlist with notion integreated.",
+    liveLink: "https://pdf2read.vercel.app",
+    domain: "pdf2read.vercel.app",
+    image: "/project-1.png",
+  },
+  {
+    id: 2,
+    title: "Pxui actionable ui components.",
+    liveLink: "https://pxui-docs.vercel.app",
+    domain: "pxui-docs.vercel.app",
+    image: "/project-4.png",
+  },
+  {
+    id: 3,
+    title: "Pdf reader with few customizations.",
+    liveLink: "https://pdf2read.vercel.app",
+    domain: "pdf2read.vercel.app",
+    image: "/project-3.png",
   },
 ];
 

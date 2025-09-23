@@ -1,27 +1,34 @@
 "use client";
 
-import { Project } from "@/lib/constants";
+import { ProjectProps } from "@/lib/constants";
+import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
-export const ProjectPreview = (project: Project) => {
+export const ProjectPreview = (project: ProjectProps) => {
   return (
-    <Link
-      href={project.liveLink}
-      target="_blank"
-      className="group flex flex-col items-start cursor-pointer font-geist"
+    <motion.div
+      layout
+      // stiffness: speed and its corresponding spring effect
+      // damping: calmness to corresponding bounce.
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className="group aspect-video relative w-full overflow-hidden cursor-pointer"
     >
-      <div className="relative w-full space-y-2 px-4 py-1">
-        <div className="flex items-center justify-between gap-2">
-          <h3 className="decoration-blue-200 group-hover: underline-offset-4">
-            {project.title}
-          </h3>
+      <Image
+        src={project.image}
+        fill
+        alt="project-img"
+        className="object-fill rounded-xl"
+        onLoad={() => <div className="bg-red-100">Loading...</div>}
+      />
 
-          <ArrowUpRightIcon className="h-4 w-4 mt-2 opacity-10 duration-300 ease-in group-hover:opacity-100" />
-        </div>
-
-        <p className="text-sm text-gray-200/70">{project.description}</p>
-      </div>
-    </Link>
+      <Link
+        href={project.liveLink}
+        target="_blank"
+        className="absolute h-full w-full opacity-0 group-hover:opacity-95 flex items-center justify-center rounded-[0.78rem] bg-clip-border backdrop-blur-xs transition duration-200 ease-in-out"
+      >
+        <span className="text-xs">{project.domain}</span>
+      </Link>
+    </motion.div>
   );
 };
