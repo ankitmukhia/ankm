@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Instrument_Serif, Geist, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { meta } from "@/lib/constants";
 import "./globals.css";
 
@@ -86,7 +87,10 @@ export default function RootLayout({
 						xl:[&>*]:col-start-3
 					"
         >
-          <GridColsLayout>{children}</GridColsLayout>
+          <GridColsLayout>
+            {children}
+            <Analytics />
+          </GridColsLayout>
         </div>
       </body>
     </html>
