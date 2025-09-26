@@ -55,12 +55,10 @@ export function GridRowLayout({ children }: { children: React.ReactNode }) {
       <svg
         data-direction="top"
         data-variant="full-screen"
-        className="absolute pointer-events-none z-10 top-0 w-full"
-        width="100%"
+        className="absolute pointer-events-none z-10 top-0 left-[50%] translate-x-[-50%] w-lvw"
         height="1"
         viewBox="0 0 100 1"
         preserveAspectRatio="none"
-        style={{ left: "50%", transform: "translateX(-50%)", width: "100vw" }}
       >
         <line
           className="stroke-white/6"
@@ -78,12 +76,10 @@ export function GridRowLayout({ children }: { children: React.ReactNode }) {
         <svg
           data-direction="bottom"
           data-variant="full-screen"
-          className="absolute pointer-events-none z-10 top-0 w-full"
-          width="100%"
+          className="absolute pointer-events-none z-10 top-0 left-[50%] translate-x-[-50%] w-lvw"
           height="1"
           viewBox="0 0 100 1"
           preserveAspectRatio="none"
-          style={{ left: "50%", transform: "translateX(-50%)", width: "100vw" }}
         >
           <line
             className="stroke-white/6"

@@ -46,7 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
-          `font-sans bg-[#111110] selection:bg-[#CAE8BD]/70 selection:text-white antialiased`,
+          `font-sans bg-[#111110] selection:bg-[#CAE8BD]/70 selection:text-white antialiased overflow-x-hidden`,
           satoshi.variable,
           instrument.variable,
           geist.variable,
