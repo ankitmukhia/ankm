@@ -9,6 +9,8 @@ import { Squares2X2Icon } from "@heroicons/react/24/outline";
 import { ListIcon } from "lucide-react";
 import { ProjectPreview } from "@/components/project-preview";
 import { PublicWorkPreview } from "@/components/publicwork-preview";
+import { Footer } from "@/components/footer";
+import { GridTopLayout } from "@/components/grid-layout/grid";
 import clsx from "clsx";
 
 export default function Home() {
@@ -73,6 +75,12 @@ export default function Home() {
         {publicWorks.map((work) => (
           <PublicWorkPreview key={work.id} {...work} />
         ))}
+
+        <div className="hidden sm:block">
+          <GridTopLayout />
+
+          <Footer />
+        </div>
       </div>
     </div>
   );

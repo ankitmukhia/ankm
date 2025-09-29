@@ -43,7 +43,7 @@ export const Nav = () => {
               key={social.name}
               href={social.url}
               target={
-                social.name === "weekly reads" || social.name === "fun ai"
+                social.name === "reads" || social.name === "fun ai"
                   ? "_self"
                   : "_blank"
               }
