@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { useChat } from "@ai-sdk/react";
+import Linkify from "linkify-react";
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
 import { GridTopLayout, GridBottomLayout } from "@/components/grid-layout/grid";
 
@@ -60,7 +61,20 @@ export const AnkitAI = () => {
                       : "tracking-wider border border-body/5 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl"
                   } max-w-xs rounded-lg px-2.5 py-1.5`}
                 >
-                  <p>{msg.content}</p>
+                  <Linkify
+                    options={{
+                      render: ({ attributes, content }) => (
+                        <a
+                          {...attributes}
+                          className="text-[#CAE8BD]/80 hover:text-[#CAE8BD]/90 underline font-medium"
+                        >
+                          {content}
+                        </a>
+                      ),
+                    }}
+                  >
+                    {msg.content}
+                  </Linkify>
                 </div>
               </div>
             );
@@ -75,6 +89,7 @@ export const AnkitAI = () => {
         <input
           ref={inputRef}
           className="w-full h-14 pl-4 outline-none placeholder:font-geist"
+          spellCheck={false}
           value={input}
           placeholder="ask me anything... and press enter ↵"
           onChange={handleInputChange}

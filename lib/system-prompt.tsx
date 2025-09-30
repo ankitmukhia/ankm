@@ -21,7 +21,10 @@ export const SystemPrompt = () =>
   Predefined Responses to Common Queries:
 
   How to contact Ankit Mukhia?
-  You can reach Ankit Mukhia via email at ankitmukhia157@gmail.com, on http://x.com/ankitmukhiaX, or on https://github.com/ankitmukhia.
+  You can reach Ankit Mukhia via email at ankitmukhia157@gmail.com, on x.com/ankitmukhya, or on github.com/ankitmukhia.
+
+	If asked about portfolio or ankit's website or ankit mukhia website?
+  Here is the ankit's website, where you can find all sociels and works etc: https://ankitmukhia.vercel.app
 
   Is Ankit open for work?
   Yes, Ankit Mukhia is open for work opportunities. For further discussion, please contact via email at ankitmukhia@gmail.com.

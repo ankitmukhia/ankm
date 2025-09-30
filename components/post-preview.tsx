@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import clsx from "clsx";
 
 import { Post } from "@/utils/all-posts";
 import { GridBottomLayout } from "@/components/grid-layout/grid";
@@ -19,21 +18,14 @@ export const PostPreview: React.FC<PostPreview> = ({
 }) => {
   return (
     <>
-      <Link
-        href={`/post/${post.slug}`}
-        className={clsx(`flex flex-col p-4`, {
-          /* "border-b border-white/5 pb-4": index === 0, */
-        })}
-      >
-        <div className="space-y-1 w-full">
-          <div>
-            <h3 className="text-md font-bold">{post.title}</h3>
-
-            <h4 className="text-wrap text-sm font-thin">{/*datehere*/}</h4>
-          </div>
+      <Link href={`/post/${post.slug}`} className="flex flex-col p-4">
+        <div className="group space-y-1 w-full">
+          <h3 className="text-md font-bold text-white/80 group-hover:text-white transition ease-in">
+            {post.title}
+          </h3>
 
           <div className="flex flex-wrap">
-            <p className="text-md font-normal text-gray-200/80">
+            <p className="text-sm text-white/60 group-hover:text-white/70 transition ease-in">
               {post.description}
             </p>
           </div>
