@@ -28,7 +28,8 @@ export const UseInViewProvider = ({
   const inView = useInView(mutableRef, { once: false, amount: 0.8 });
 
   const ref = useCallback((node: Element | null) => {
-    mutableRef.current = node; // node is what ever DOM element react just rendered(div, svg, p, etc)
+    // Capture the rendered DOM element for `useInView` to track.
+    mutableRef.current = node;
   }, []);
 
   return (

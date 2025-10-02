@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Nav } from "@/components/nav";
 import { publicWorks, projects } from "@/lib/constants";
 import { GithubActivityGraph } from "@/components/github-activity-graph";
@@ -11,10 +11,23 @@ import { ProjectPreview } from "@/components/project-preview";
 import { PublicWorkPreview } from "@/components/publicwork-preview";
 import { Footer } from "@/components/footer";
 import { GridTopLayout } from "@/components/grid-layout/grid";
+import Lenis from "lenis";
 import clsx from "clsx";
 
 export default function Home() {
   const [columnSwitch, setColumnSwitch] = useState<boolean>(false);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <div className="p-2 xl:mt-30">
