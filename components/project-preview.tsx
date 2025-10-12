@@ -1,11 +1,14 @@
 "use client";
 
+import React from "react";
 import { ProjectProps } from "@/lib/constants";
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 
 export const ProjectPreview = (project: ProjectProps) => {
+  const [isImageLoaded, setIsImageLoaded] = React.useState(false);
+
   return (
     <motion.div
       layout
@@ -14,12 +17,16 @@ export const ProjectPreview = (project: ProjectProps) => {
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className="group aspect-video relative w-full overflow-hidden cursor-pointer"
     >
+      {!isImageLoaded && (
+        <div className="h-full bg-zinc-800/30 rounded-xl animate-pulse" />
+      )}
+
       <Image
         src={project.image}
         fill
         alt="project-img"
         className="object-fill rounded-xl"
-        onLoad={() => <div className="bg-red-100">Loading...</div>}
+        onLoad={() => setIsImageLoaded(true)}
       />
 
       <Link
