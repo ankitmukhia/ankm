@@ -91,8 +91,8 @@ export const projects: ProjectProps[] = [
   {
     id: 1,
     title: "Waitlist with notion integreated.",
-    liveLink: "https://pdf2read.vercel.app",
-    domain: "pdf2read.vercel.app",
+    liveLink: "https://waitlist-template-beryl.vercel.app/",
+    domain: "waitlist-template-beryl.vercel.app",
     image: "/project-1.png",
   },
   {
