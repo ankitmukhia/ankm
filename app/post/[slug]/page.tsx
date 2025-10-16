@@ -6,9 +6,17 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-/* export async function generateStaticParams() {
-	return;
-} */
+/* update static content without rebuilding */
+/* export const revalidate = 60;  */
+
+/* Dynamic route static generation */
+export async function generateStaticParams() {
+  const allPosts = post.allPostsMetadata();
+
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default async function Page({ params }: Props) {
   const slug = (await params).slug;
