@@ -4,12 +4,13 @@ import { useRef, useEffect } from "react";
 import { useChat } from "@ai-sdk/react";
 import Linkify from "linkify-react";
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
-import { GridTopLayout, GridBottomLayout } from "@/components/grid-layout/grid";
+import { preQueries } from "@/lib/constants";
 
 export const AnkitAI = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { messages, input, handleSubmit, handleInputChange } = useChat();
+  const { messages, input, setInput, handleSubmit, handleInputChange } =
+    useChat();
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -33,33 +34,45 @@ export const AnkitAI = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col h-[600px] text-sm font-satoshi">
-      <div className="absolute right-0 overflow-y-auto bg-blue-500 gradient-circle" />
-      {messages.length === 0 && (
-        <div className="absolute left-4 max-w-xs top-6 border border-body/5 flex-1 overflow-y-auto tracking-wider rounded-tr-2xl rounded-bl-2xl rounded-br-2xl p-4">
-          <p className="text-sm font-manrope">
-            Hi, I am ankit&apos;s AI, ask me anything about him!
-          </p>
-        </div>
-      )}
+    <div className="relative flex flex-col h-[600px] font-geist">
+      {/* <div className="absolute right-0 overflow-y-auto bg-blue-500 gradient-circle" /> */}
 
-      <GridTopLayout />
+      <div
+        ref={chatContainerRef}
+        className="relative flex-1 p-4 overflow-y-auto border-2 border-neutral-800/80 rounded-t-4xl"
+      >
+        {messages.length === 0 && (
+          <div className="absolute inset-4 flex text-center justify-end">
+            <div>
+              {preQueries.map(({ id, query }) => (
+                <div
+                  key={id}
+                  className="group flex justify-end mb-4"
+                  onClick={() => setInput(query)}
+                >
+                  <div className="max-w-xs px-4 py-2 tracking-wider bg-neutral-800/50 hover:bg-neutral-800/70 rounded-lg rounded-t-3xl rounded-br-3xl cursor-pointer text-neutral-300 group-hover:text-neutral-100 transition-colors duration-300 ease-out">
+                    <p>{query}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
-      <div ref={chatContainerRef} className="flex-1 p-4 overflow-y-auto">
         <div>
           {messages.map((msg) => {
             return (
               <div
                 key={msg.id}
-                className={`flex mb-4 font-manrope
-			    ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                className={`flex mb-4
+									${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-xs${
+                  className={`max-w-xs rounded-lg px-4 py-2 ${
                     msg.role === "user"
-                      ? "tracking-wider border border-white/5 rounded-tl-2xl rounded-br-2xl rounded-bl-2xl"
-                      : "tracking-wider border border-body/5 rounded-tr-2xl rounded-bl-2xl rounded-br-2xl"
-                  } max-w-xs rounded-lg px-2.5 py-1.5`}
+                      ? "tracking-wider bg-neutral-800/50 rounded-t-3xl rounded-br-3xl"
+                      : "tracking-wider bg-neutral-800 rounded-t-3xl rounded-br-3xl"
+                  }`}
                 >
                   <Linkify
                     options={{
@@ -82,28 +95,30 @@ export const AnkitAI = () => {
         </div>
       </div>
 
-      <GridTopLayout />
       {/* focus-within:outline-1 focus-within:outline-gray-500/50 */}
 
-      <form className="relative w-full" onSubmit={handleSubmit}>
+      <form
+        className="flex items-center gap-3 border-x-2 p-1 border-b-2 border-neutral-800/80 rounded-b-4xl"
+        onSubmit={handleSubmit}
+      >
         <input
           ref={inputRef}
-          className="w-full h-14 pl-4 outline-none placeholder:font-geist"
+          className="w-full pl-5 outline-none placeholder:font-geist"
           spellCheck={false}
           value={input}
           placeholder="ask me anything... and press enter ↵"
           onChange={handleInputChange}
         />
 
+        <div className="h-6 w-[2px] bg-neutral-800/50" />
+
         <button
           type="submit"
-          className="absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 cursor-pointer rounded-full bg-hoverColor/40 flex items-center justify-center"
+          className="group p-4 cursor-pointer bg-neutral-800/80 rounded-br-3xl"
         >
-          <ArrowUpIcon className="w-4 h-4 text-blue-300" />
+          <ArrowUpIcon className="size-4 text-neutral-400" />
         </button>
       </form>
-
-      <GridBottomLayout />
     </div>
   );
 };

@@ -6,7 +6,7 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-/* update static content without rebuilding */
+/* update static content without rebuilding every 60 second */
 /* export const revalidate = 60;  */
 
 /* Dynamic route static generation */

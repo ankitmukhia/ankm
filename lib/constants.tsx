@@ -114,14 +114,22 @@ export const projects: ProjectProps[] = [
 export const preQueries = [
   {
     id: 1,
-    query: "What are your skills?",
+    query: "Hi",
   },
   {
     id: 2,
-    query: "Are you available for work?",
+    query: "How are you?",
   },
   {
     id: 3,
-    query: "Are you open to full-time or freelance opportunities?",
+    query: "What are your skills?",
+  },
+  {
+    id: 4,
+    query: "Are you available for work?",
+  },
+  {
+    id: 5,
+    query: "Are you open to full-time?",
   },
 ];

@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { meta } from "@/lib/constants";
 import "./globals.css";
 
-import { GridColsLayout } from "@/components/grid-layout/grid";
 import clsx from "clsx";
 
 const instrument = Instrument_Serif({
@@ -47,7 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
-          `font-sans bg-[#111110] selection:bg-none selection:underline selection:[text-decoration-style:wavy] selection:[text-decoration-color:#CAE8BD] selection:text-[#CAE8BD] antialiased overflow-x-hidden`,
+          `font-sans selection:bg-none selection:underline selection:[text-decoration-style:wavy] selection:[text-decoration-color:#CAE8BD] selection:text-[#CAE8BD] antialiased overflow-x-hidden`,
           satoshi.variable,
           instrument.variable,
           geist.variable,
@@ -88,12 +87,10 @@ export default function RootLayout({
 						xl:[&>*]:col-start-3
 					"
         >
-          <GridColsLayout>
-            <UseInViewProvider>
-              {children}
-              <Analytics />
-            </UseInViewProvider>
-          </GridColsLayout>
+          <UseInViewProvider>
+            {children}
+            <Analytics />
+          </UseInViewProvider>
         </div>
       </body>
     </html>

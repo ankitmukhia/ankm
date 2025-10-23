@@ -7,17 +7,6 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 export const Nav = () => {
   return (
     <>
-      {/* <nav className="flex tracking-wide my-8 items-center justify-between space-x-6">
-        <Logo />
-
-        <Link
-          href="/ai"
-          className="font-satoshi hover:underline underline-offset-4"
-        >
-          ankit://ai
-        </Link>
-      </nav> */}
-
       <div className="mt-2 space-y-4">
         <h1 className="text-[1.3rem] font-manrope tracking-wider leading-none">
           Ankit Mukhia

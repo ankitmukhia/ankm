@@ -1,28 +1,37 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@theme {
-  --color-body: #ffffff;
-  --color-hoverColor: #8fa8fa;
+:root {
+  --background: oklch(0.1772 0.002 106.6);
+  --foreground: oklch(0.985 0 0);
+  --font-sans: "Satoshi", sans-serif;
+  --font-serif: "Instrument Serif", Serif;
+  --font-geist: "Geist", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+}
 
-  --font-*: initial;
-  --font-sans: Satoshi, sans-serif;
-  --font-serif: "Instrument Serif";
-  --font-geist: "Geist";
-  --font-manrope: "Manrope";
+.dark {
+  --background: oklch(97% 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-geist: var(--font-geist);
+  --font-manrope: var(--font-manrope);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
 
 @layer base {
   body {
-    @apply text-white;
+    @apply text-foreground bg-background;
   }
 }
 
 @layer components {
   .gradient-circle {
-    @apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90;
-  }
-  .hover-cover {
-    @apply -mx-3 w-full space-y-2 rounded-lg px-3 py-2 transform transition-all duration-300 ease-in-out md:hover:scale-105 md:hover:bg-hoverColor/20;
+    @apply w-32 h-32 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.8)_0%,_rgba(168,85,247,0.3)_60%,_transparent_100%)] blur-[80px] opacity-90 bg-orange-300;
   }
 }

@@ -13,7 +13,7 @@ const InViewContext = createContext<InViewProps | null>(null);
 export const useInViewContext = () => {
   const inViewContext = useContext(InViewContext);
   if (!inViewContext) {
-    throw new Error("Context is not wrapped.");
+    throw new Error("useInViewContext most wrapped inside InViewContext.");
   }
 
   return inViewContext;

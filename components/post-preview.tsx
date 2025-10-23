@@ -3,24 +3,19 @@
 import Link from "next/link";
 
 import { Post } from "@/utils/all-posts";
-import { GridBottomLayout } from "@/components/grid-layout/grid";
 
 interface PostPreview {
   post: Post;
-  index: number;
-  totalPosts: number;
+  index?: number;
+  totalPosts?: number;
 }
 
-export const PostPreview: React.FC<PostPreview> = ({
-  post,
-  index,
-  totalPosts,
-}) => {
+export const PostPreview: React.FC<PostPreview> = ({ post }) => {
   return (
     <>
       <Link href={`/post/${post.slug}`} className="flex flex-col p-4">
         <div className="group space-y-1 w-full">
-          <h3 className="text-md font-bold text-white/80 group-hover:text-white transition ease-in">
+          <h3 className="text-lg font-bold text-white/80 group-hover:text-white transition ease-in">
             {post.title}
           </h3>
 
@@ -32,7 +27,7 @@ export const PostPreview: React.FC<PostPreview> = ({
         </div>
       </Link>
 
-      {index < totalPosts - 1 && <GridBottomLayout />}
+      {/* {index < totalPosts - 1 && <div className="border-b" />} */}
     </>
   );
 };
