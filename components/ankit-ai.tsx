@@ -9,7 +9,7 @@ import { preQueries } from "@/lib/constants";
 export const AnkitAI = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { messages, input, setInput, handleSubmit, handleInputChange } =
+  const { messages, input, setInput, handleSubmit, handleInputChange, status } =
     useChat();
 
   useEffect(() => {
@@ -93,6 +93,12 @@ export const AnkitAI = () => {
             );
           })}
         </div>
+
+        {status === "submitted" && (
+          <div className="flex justify-start max-w-fit tracking-wider px-4 py-2 bg-neutral-800/40 rounded-t-3xl rounded-br-3xl">
+            <p className="text-neutral-300 tracking-wider">Wait...</p>
+          </div>
+        )}
       </div>
 
       {/* focus-within:outline-1 focus-within:outline-gray-500/50 */}

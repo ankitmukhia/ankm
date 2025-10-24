@@ -36,6 +36,7 @@ export interface ProjectProps {
   liveLink: string;
   domain: string;
   image: string;
+  priority: boolean;
 }
 
 export const Github = "http://github.com/ankitmukhia";
@@ -91,9 +92,10 @@ export const projects: ProjectProps[] = [
   {
     id: 1,
     title: "Waitlist with notion integreated.",
-    liveLink: "https://waitlist-template-beryl.vercel.app/",
+    liveLink: "https://waitlist-template-beryl.vercel.app",
     domain: "waitlist-template-beryl.vercel.app",
     image: "/project-1.png",
+    priority: true,
   },
   {
     id: 2,
@@ -101,6 +103,7 @@ export const projects: ProjectProps[] = [
     liveLink: "https://pxui-docs.vercel.app",
     domain: "pxui-docs.vercel.app",
     image: "/project-4.png",
+    priority: false,
   },
   {
     id: 3,
@@ -108,6 +111,7 @@ export const projects: ProjectProps[] = [
     liveLink: "https://pdf2read.vercel.app",
     domain: "pdf2read.vercel.app",
     image: "/project-3.png",
+    priority: false,
   },
 ];
 

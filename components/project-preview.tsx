@@ -24,12 +24,15 @@ export const ProjectPreview = (project: ProjectProps) => {
       <Image
         src={project.image}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        priority={project.priority}
         alt="project-img"
         className="object-fill rounded-xl"
         onLoad={() => setIsImageLoaded(true)}
       />
 
       <Link
+        as="image"
         href={project.liveLink}
         target="_blank"
         className="absolute h-full w-full opacity-0 group-hover:opacity-95 flex items-center justify-center rounded-[0.78rem] bg-clip-border backdrop-blur-xs transition duration-200 ease-in-out"
