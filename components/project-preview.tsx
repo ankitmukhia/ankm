@@ -32,7 +32,6 @@ export const ProjectPreview = (project: ProjectProps) => {
       />
 
       <Link
-        as="image"
         href={project.liveLink}
         target="_blank"
         className="absolute h-full w-full opacity-0 group-hover:opacity-95 flex items-center justify-center rounded-[0.78rem] bg-clip-border backdrop-blur-xs transition duration-200 ease-in-out"
