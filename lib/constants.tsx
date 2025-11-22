@@ -91,6 +91,14 @@ export const publicWorks: Array<PublicWorksProps> = [
 export const projects: ProjectProps[] = [
   {
     id: 1,
+    title: "Fractal Wallpaper",
+    liveLink: "https://fractal-glass-wallpaper.vercel.app",
+    domain: "fractal-glass-wallpaper.vercel.app",
+    image: "/project-5.png",
+    priority: true,
+  },
+  {
+    id: 2,
     title: "Waitlist with notion integreated.",
     liveLink: "https://waitlist-template-beryl.vercel.app",
     domain: "waitlist-template-beryl.vercel.app",
@@ -98,7 +106,7 @@ export const projects: ProjectProps[] = [
     priority: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "Pxui actionable ui components.",
     liveLink: "https://pxui-docs.vercel.app",
     domain: "pxui-docs.vercel.app",
@@ -106,7 +114,7 @@ export const projects: ProjectProps[] = [
     priority: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "Pdf reader with few customizations.",
     liveLink: "https://pdf2read.vercel.app",
     domain: "pdf2read.vercel.app",
