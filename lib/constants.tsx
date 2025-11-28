@@ -114,7 +114,15 @@ export const projects: ProjectProps[] = [
     priority: false,
   },
   {
-    id: 4,
+    id: 5,
+    title: "Json Visualizer Creator Formatter",
+    liveLink: "https://jsonvisualizerr.vercel.app",
+    domain: "jsonvisualizerr.vercel.app",
+    image: "/project-6.png",
+    priority: false,
+  },
+  {
+    id: 6,
     title: "Pdf reader with few customizations.",
     liveLink: "https://pdf2read.vercel.app",
     domain: "pdf2read.vercel.app",
