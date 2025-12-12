@@ -54,13 +54,18 @@ export const socials: Social[] = [
   },
   {
     name: "reads",
-    url: "/post",
+    url: "/reads",
     icon: SiReaddotcv,
   },
   {
     name: "fun ai",
     url: "/ai",
     icon: SiGooglegemini,
+  },
+  {
+    name: "thoughts",
+    url: "/post",
+    icon: SiReaddotcv,
   },
 ];
 
