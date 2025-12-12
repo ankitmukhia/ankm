@@ -68,24 +68,24 @@ export default async function Page() {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <h2 className="text-md font-bold">Currently Reading</h2>
-          {currentlyReading?.map((state) => (
-            <ReadingListItem key={state.id} book={state} />
+          {currentlyReading?.map((state, index) => (
+            <ReadingListItem key={index} book={state} />
           ))}
         </div>
 
         {finishedReading!.length > 0 && (
           <div>
             <h2 className="text-md font-bold">Finished Reading</h2>
-            {finishedReading?.map((state) => (
-              <ReadingListItem key={state.id} book={state} />
+            {finishedReading?.map((state, index) => (
+              <ReadingListItem key={index} book={state} />
             ))}
           </div>
         )}
 
         <div className="flex flex-col gap-3">
           <h2 className="text-md font-bold">Wants to Read</h2>
-          {wantsToRead?.map((state) => (
-            <ReadingListItem key={state.id} book={state} />
+          {wantsToRead?.map((state, index) => (
+            <ReadingListItem key={index} book={state} />
           ))}
         </div>
       </div>
