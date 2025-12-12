@@ -1,4 +1,4 @@
-import { query } from "@/lib/apollo/apollo-client";
+/* import { query } from "@/lib/apollo/apollo-client";
 import { MY_READING_STATES } from "@/lib/apollo/queries";
 import { MyReadingStatesQuery } from "@/lib/apollo/types";
 import Link from "next/link";
@@ -47,9 +47,13 @@ const ReadingListItem = ({
       </div>
     </Link>
   );
-};
+}; */
 
 export default async function Page() {
+  return <div>Reads</div>;
+}
+
+/* export default async function Page() {
   const { data } = (await query({ query: MY_READING_STATES })) as {
     data: MyReadingStatesQuery;
   };
@@ -91,4 +95,4 @@ export default async function Page() {
       </div>
     </div>
   );
-}
+} */
