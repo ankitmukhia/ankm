@@ -52,11 +52,11 @@ export const socials: Social[] = [
     url: "https://x.com/ankitmukhya",
     icon: SiX,
   },
-  {
+  /* {
     name: "reads",
     url: "/reads",
     icon: SiReaddotcv,
-  },
+  },  */
   {
     name: "fun ai",
     url: "/ai",
@@ -104,6 +104,14 @@ export const projects: ProjectProps[] = [
   },
   {
     id: 2,
+    title: "Mockitup",
+    liveLink: "https://mockitupp.vercel.app",
+    domain: "mockitup.vercel.app",
+    image: "/mockitup.png",
+    priority: true,
+  },
+  {
+    id: 3,
     title: "Waitlist with notion integreated.",
     liveLink: "https://waitlist-tmpl.vercel.app",
     domain: "waitlist-tmpl.vercel.app",
@@ -111,7 +119,7 @@ export const projects: ProjectProps[] = [
     priority: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Pxui actionable ui components.",
     liveLink: "https://pxui-docs.vercel.app",
     domain: "pxui-docs.vercel.app",

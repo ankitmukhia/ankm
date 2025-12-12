@@ -15,7 +15,7 @@ import Lenis from "lenis";
 import clsx from "clsx";
 
 export default function Home() {
-  const [columnSwitch, setColumnSwitch] = useState<boolean>(false);
+  const [columnSwitch, setColumnSwitch] = useState<boolean>(true);
 
   useEffect(() => {
     const lenis = new Lenis();
