@@ -112,6 +112,14 @@ export const projects: ProjectProps[] = [
   },
   {
     id: 3,
+    title: "Justwrite",
+    liveLink: "https://justwritee.vercel.app",
+    domain: "justwritee.vercel.app",
+    image: "/just-write.png",
+    priority: true,
+  },
+  {
+    id: 4,
     title: "Waitlist with notion integreated.",
     liveLink: "https://waitlist-tmpl.vercel.app",
     domain: "waitlist-tmpl.vercel.app",
@@ -119,7 +127,7 @@ export const projects: ProjectProps[] = [
     priority: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Pxui actionable ui components.",
     liveLink: "https://pxui-docs.vercel.app",
     domain: "pxui-docs.vercel.app",
@@ -127,7 +135,7 @@ export const projects: ProjectProps[] = [
     priority: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "Json Visualizer Creator Formatter",
     liveLink: "https://jsonvisualizerr.vercel.app",
     domain: "jsonvisualizerr.vercel.app",
@@ -135,7 +143,7 @@ export const projects: ProjectProps[] = [
     priority: false,
   },
   {
-    id: 6,
+    id: 7,
     title: "Pdf reader with few customizations.",
     liveLink: "https://pdf2read.vercel.app",
     domain: "pdf2read.vercel.app",
